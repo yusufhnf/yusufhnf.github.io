@@ -1,0 +1,315 @@
+{
+  "personal": {
+    "name": "John Doe",
+    "title": "Full-Stack Developer & UI/UX Designer",
+    "tagline": "Crafting exceptional digital experiences with modern technologies",
+    "bio": "I'm a passionate full-stack developer with over 5 years of experience in creating beautiful, functional, and user-centered digital experiences. My journey began with a curiosity about how things work, which led me to pursue computer science and eventually specialize in web development.",
+    "location": "San Francisco, CA",
+    "email": "john.doe@example.com",
+    "phone": "+1 (555) 123-4567",
+    "avatar": "JD",
+    "resumeUrl": "/resume.pdf",
+    "mediumProfile": "https://medium.com/@johndoe"
+  },
+  "social": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/johndoe",
+      "icon": "Github"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/johndoe",
+      "icon": "Linkedin"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/johndoe",
+      "icon": "Twitter"
+    },
+    {
+      "platform": "Medium",
+      "url": "https://medium.com/@johndoe",
+      "icon": "BookOpen"
+    },
+    {
+      "platform": "TikTok",
+      "url": "https://tiktok.com/@johndoe",
+      "icon": "Music"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://instagram.com/johndoe",
+      "icon": "Instagram"
+    }
+  ],
+  "skills": {
+    "frontend": [
+      { "name": "React", "level": 95, "color": "from-blue-500 to-cyan-500" },
+      { "name": "TypeScript", "level": 90, "color": "from-blue-600 to-blue-400" },
+      { "name": "Next.js", "level": 85, "color": "from-gray-700 to-gray-500" },
+      { "name": "Vue.js", "level": 80, "color": "from-green-500 to-green-400" },
+      { "name": "Tailwind CSS", "level": 95, "color": "from-teal-500 to-cyan-500" },
+      { "name": "Framer Motion", "level": 85, "color": "from-purple-500 to-pink-500" }
+    ],
+    "backend": [
+      { "name": "Node.js", "level": 90, "color": "from-green-600 to-green-400" },
+      { "name": "Python", "level": 85, "color": "from-yellow-500 to-yellow-400" },
+      { "name": "Express.js", "level": 88, "color": "from-gray-600 to-gray-400" },
+      { "name": "PostgreSQL", "level": 82, "color": "from-blue-700 to-blue-500" },
+      { "name": "MongoDB", "level": 80, "color": "from-green-700 to-green-500" },
+      { "name": "GraphQL", "level": 75, "color": "from-pink-600 to-pink-400" }
+    ],
+    "tools": [
+      { "name": "Git", "level": 95, "color": "from-orange-600 to-orange-400" },
+      { "name": "Docker", "level": 80, "color": "from-blue-600 to-blue-400" },
+      { "name": "AWS", "level": 75, "color": "from-yellow-600 to-orange-500" },
+      { "name": "Figma", "level": 90, "color": "from-purple-600 to-purple-400" },
+      { "name": "Jest", "level": 85, "color": "from-red-600 to-red-400" },
+      { "name": "Webpack", "level": 78, "color": "from-blue-500 to-teal-500" }
+    ]
+  },
+  "experience": [
+    {
+      "title": "Senior Full-Stack Developer",
+      "company": "TechCorp Solutions",
+      "location": "San Francisco, CA",
+      "period": "2022 - Present",
+      "description": "Leading development of scalable web applications using React, Node.js, and AWS. Mentoring junior developers and architecting microservices solutions.",
+      "responsibilities": [
+        "Architect and develop scalable microservices using Node.js and Docker",
+        "Lead code reviews and establish development best practices across teams",
+        "Mentor 5+ junior developers and conduct technical interviews",
+        "Collaborate with product managers to define technical requirements and roadmaps",
+        "Optimize application performance resulting in 40% faster load times"
+      ],
+      "achievements": [
+        "Increased application performance by 40% through optimization",
+        "Led a team of 5 developers on multiple projects",
+        "Implemented CI/CD pipelines reducing deployment time by 60%"
+      ]
+    },
+    {
+      "title": "Full-Stack Developer",
+      "company": "Digital Innovations Inc.",
+      "location": "New York, NY",
+      "period": "2020 - 2022",
+      "description": "Developed and maintained multiple client-facing applications using modern web technologies. Collaborated with design teams to implement pixel-perfect UIs.",
+      "responsibilities": [
+        "Develop responsive web applications using React, TypeScript, and Node.js",
+        "Integrate RESTful APIs and third-party services including payment gateways",
+        "Collaborate with UX/UI designers to implement pixel-perfect interfaces",
+        "Write comprehensive unit and integration tests using Jest and Cypress",
+        "Participate in agile development processes and sprint planning"
+      ],
+      "achievements": [
+        "Built 15+ responsive web applications",
+        "Reduced bug reports by 35% through comprehensive testing",
+        "Integrated third-party APIs and payment systems"
+      ]
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "StartupXYZ",
+      "location": "Austin, TX",
+      "period": "2019 - 2020",
+      "description": "Focused on creating engaging user interfaces and improving user experience. Worked closely with UX designers to bring mockups to life.",
+      "responsibilities": [
+        "Build interactive user interfaces using React and modern CSS frameworks",
+        "Optimize applications for maximum speed and scalability across devices",
+        "Collaborate with backend developers to integrate frontend with APIs",
+        "Implement responsive design principles for mobile-first development",
+        "Conduct user testing sessions and implement feedback-driven improvements"
+      ],
+      "achievements": [
+        "Improved user engagement by 50% through UI/UX enhancements",
+        "Developed reusable component library",
+        "Optimized applications for mobile devices"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "University of California, Berkeley",
+      "location": "Berkeley, CA",
+      "period": "2015 - 2019",
+      "gpa": "3.8/4.0",
+      "achievements": [
+        "Graduated Magna Cum Laude",
+        "Dean's List for 6 semesters",
+        "President of Computer Science Club"
+      ]
+    },
+    {
+      "degree": "Full-Stack Web Development Bootcamp",
+      "institution": "General Assembly",
+      "location": "San Francisco, CA",
+      "period": "2018",
+      "achievements": [
+        "Top 5% of cohort",
+        "Built 10+ full-stack applications",
+        "Mentored junior students"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-Commerce Platform",
+      "description": "A full-stack e-commerce solution with React, Node.js, and Stripe integration.",
+      "detailedDescription": "A comprehensive e-commerce platform built with modern technologies, featuring user authentication, product management, shopping cart functionality, and secure payment processing. The application includes an admin dashboard for inventory management and order tracking.",
+      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["React", "Node.js", "MongoDB", "Stripe", "JWT", "Tailwind CSS"],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/johndoe/ecommerce",
+      "duration": "3 months",
+      "completedDate": "January 2024",
+      "features": [
+        "User authentication and authorization",
+        "Product catalog with search and filtering",
+        "Shopping cart and wishlist functionality",
+        "Secure payment processing with Stripe",
+        "Admin dashboard for inventory management",
+        "Order tracking and email notifications",
+        "Responsive design for all devices"
+      ],
+      "challenges": [
+        {
+          "challenge": "Payment Security",
+          "solution": "Implemented Stripe's secure payment processing with PCI compliance and webhook validation for order confirmation."
+        },
+        {
+          "challenge": "Performance Optimization",
+          "solution": "Used React.memo, lazy loading, and image optimization to achieve 95+ Lighthouse scores."
+        }
+      ],
+      "stats": {
+        "users": "1,200+",
+        "transactions": "$50K+",
+        "uptime": "99.9%",
+        "performance": "95/100"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Task Management App",
+      "description": "A collaborative task management application with real-time updates.",
+      "detailedDescription": "A modern task management application that enables teams to collaborate effectively with real-time updates, drag-and-drop functionality, and comprehensive project tracking. Built with React and Socket.io for seamless real-time communication.",
+      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["React", "TypeScript", "Socket.io", "Tailwind CSS", "Framer Motion"],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/johndoe/taskmanager",
+      "duration": "2 months",
+      "completedDate": "December 2023",
+      "features": [
+        "Real-time collaboration with Socket.io",
+        "Drag-and-drop task management",
+        "Project timeline and milestone tracking",
+        "Team member assignment and notifications",
+        "File attachments and comments",
+        "Advanced filtering and search",
+        "Dark/light theme toggle"
+      ],
+      "challenges": [
+        {
+          "challenge": "Real-time Synchronization",
+          "solution": "Implemented Socket.io with conflict resolution algorithms to handle simultaneous edits by multiple users."
+        }
+      ],
+      "stats": {
+        "activeUsers": "500+",
+        "tasksCreated": "10K+",
+        "teamProjects": "200+",
+        "satisfaction": "4.8/5"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Weather Dashboard",
+      "description": "A beautiful weather dashboard with location-based forecasts.",
+      "detailedDescription": "An elegant weather dashboard that provides comprehensive weather information with beautiful visualizations, interactive maps, and detailed forecasts. Features location-based weather data and historical weather patterns.",
+      "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["Vue.js", "Chart.js", "OpenWeather API", "Mapbox", "SCSS"],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/johndoe/weather",
+      "duration": "1.5 months",
+      "completedDate": "November 2023",
+      "features": [
+        "Current weather conditions and forecasts",
+        "Interactive weather maps",
+        "Historical weather data visualization",
+        "Location-based weather alerts",
+        "Customizable dashboard widgets",
+        "Weather trend analysis",
+        "Offline data caching"
+      ],
+      "stats": {
+        "dailyUsers": "2K+",
+        "apiCalls": "100K+",
+        "accuracy": "98%",
+        "loadTime": "<2s"
+      }
+    },
+    {
+      "id": 4,
+      "title": "REST API Service",
+      "description": "A scalable REST API with authentication and rate limiting.",
+      "detailedDescription": "A robust and scalable REST API service built with Node.js and Express, featuring comprehensive authentication, rate limiting, data validation, and extensive documentation. Designed to handle high-traffic applications with proper error handling and logging.",
+      "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "backend",
+      "technologies": ["Node.js", "Express", "PostgreSQL", "JWT", "Redis", "Docker"],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/johndoe/api",
+      "duration": "2.5 months",
+      "completedDate": "October 2023",
+      "features": [
+        "JWT-based authentication system",
+        "Role-based access control (RBAC)",
+        "Rate limiting and request throttling",
+        "Comprehensive input validation",
+        "API documentation with Swagger",
+        "Database migrations and seeding",
+        "Automated testing and CI/CD"
+      ],
+      "challenges": [
+        {
+          "challenge": "Scalability",
+          "solution": "Implemented Redis caching and database indexing to handle 10K+ concurrent requests."
+        },
+        {
+          "challenge": "Security",
+          "solution": "Added comprehensive security measures including CORS, helmet.js, and input sanitization."
+        }
+      ],
+      "stats": {
+        "requests": "1M+/day",
+        "uptime": "99.95%",
+        "responseTime": "<100ms",
+        "endpoints": "50+"
+      }
+    }
+  ],
+  "achievements": [
+    { "icon": "Code", "title": "50+ Projects", "description": "Completed successfully" },
+    { "icon": "Palette", "title": "5+ Years", "description": "Design experience" },
+    { "icon": "Zap", "title": "99%", "description": "Client satisfaction" }
+  ],
+  "values": [
+    {
+      "title": "Innovation",
+      "description": "Always exploring new technologies and approaches to solve problems creatively."
+    },
+    {
+      "title": "Quality",
+      "description": "Committed to writing clean, maintainable code and delivering polished products."
+    },
+    {
+      "title": "Collaboration",
+      "description": "Believing that the best solutions come from working together and sharing knowledge."
+    }
+  ]
+}
