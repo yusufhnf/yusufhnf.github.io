@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import ProjectModal from './ProjectModal';
 
 interface PortfolioProps {
@@ -8,6 +9,7 @@ interface PortfolioProps {
 }
 
 const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,13 +40,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     setSelectedProject(null);
   };
 
-  const handleShowMoreClick = () => {
-    // For now, scroll to contact section or implement navigation to dedicated portfolio page
-    // In a real application, this would navigate to a dedicated portfolio page
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleViewAllClick = () => {
+    navigate('/projects');
   };
 
   return (
@@ -175,7 +172,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           ))}
         </motion.div>
 
-        {/* Show More Button */}
+        {/* Enhanced View All Projects Button */}
         {hasMoreProjects && (
           <motion.div
             className="flex justify-center mt-12 sm:mt-16"
@@ -185,22 +182,31 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
             viewport={{ once: true }}
           >
             <motion.button
-              onClick={handleShowMoreClick}
-              className="group inline-flex items-center space-x-3 btn-liquid px-8 py-4 rounded-modern font-semibold text-base transition-all glow-interactive"
+              onClick={handleViewAllClick}
+              className="group inline-flex items-center space-x-3 btn-liquid px-8 py-4 rounded-modern font-semibold text-base transition-all glow-interactive relative overflow-hidden"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>View All Projects</span>
+              {/* Enhanced button content */}
+              <span className="relative z-10">View All Projects</span>
               <motion.div
-                className="flex items-center"
+                className="flex items-center relative z-10"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
               >
                 <ArrowRight size={20} />
               </motion.div>
-              <span className="text-sm text-blue-200 opacity-80">
+              <span className="text-sm text-blue-200 opacity-80 relative z-10">
                 ({filteredProjects.length - 6} more)
               </span>
+              
+              {/* Enhanced hover effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: '100%' }}
+                transition={{ duration: 0.6 }}
+              />
             </motion.button>
           </motion.div>
         )}

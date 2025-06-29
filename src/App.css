@@ -24,6 +24,36 @@ body {
   color: #FFFFFF;
   position: relative;
   overflow-x: hidden;
+  width: 100%;
+}
+
+/* Enhanced Responsive Container */
+.responsive-container {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Desktop Layout Optimizations */
+@media (min-width: 1024px) {
+  .responsive-container {
+    max-width: 1920px; /* Support up to 1920px wide screens */
+  }
+}
+
+@media (min-width: 1440px) {
+  .responsive-container {
+    max-width: 1920px;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .responsive-container {
+    max-width: 2560px; /* Support ultra-wide screens */
+    padding: 0 4rem;
+  }
 }
 
 /* Enhanced Animated Background Elements */
@@ -693,4 +723,74 @@ textarea:focus-visible {
   );
   border-color: rgba(59, 130, 246, 0.5);
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* Enhanced Desktop Responsive Grid */
+@media (min-width: 1024px) {
+  .desktop-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .desktop-grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .desktop-grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .desktop-xl-grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .desktop-xl-grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1920px) {
+  .desktop-2xl-grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .desktop-2xl-grid-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* Line Clamp Utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Enhanced Responsive Spacing */
+@media (min-width: 1440px) {
+  .xl-spacing {
+    padding: 6rem 8rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .xxl-spacing {
+    padding: 8rem 12rem;
+  }
 }

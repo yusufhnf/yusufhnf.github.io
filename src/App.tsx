@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,8 +12,44 @@ import Medium from './components/Medium';
 import Contact from './components/Contact';
 import LoadingScreen from './components/LoadingScreen';
 import BackToTop from './components/BackToTop';
+import ProjectsPage from './components/ProjectsPage';
 import { useData } from './hooks/useData';
 import './App.css';
+
+function HomePage({ data, activeSection }: { data: any; activeSection: string }) {
+  return (
+    <>
+      <Navbar activeSection={activeSection} data={data} />
+      <main>
+        <section id="home">
+          <Hero data={data} />
+        </section>
+        <section id="about" className="bg-primary-dark">
+          <About data={data} />
+        </section>
+        <section id="experience" className="bg-primary-black">
+          <Experience data={data} />
+        </section>
+        <section id="education" className="bg-primary-dark">
+          <Education data={data} />
+        </section>
+        <section id="tech-stack" className="bg-primary-black">
+          <TechStack data={data} />
+        </section>
+        <section id="portfolio" className="bg-primary-dark">
+          <Portfolio data={data} />
+        </section>
+        <section id="medium" className="bg-primary-black">
+          <Medium data={data} />
+        </section>
+        <section id="contact" className="bg-primary-dark">
+          <Contact data={data} />
+        </section>
+      </main>
+      <BackToTop />
+    </>
+  );
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -71,48 +108,33 @@ function App() {
   }
 
   return (
-    <div className="bg-primary-black text-text-primary overflow-x-hidden">
-      <AnimatePresence>
-        {isLoading && <LoadingScreen />}
-      </AnimatePresence>
-      
-      {!isLoading && data && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Navbar activeSection={activeSection} data={data} />
-          <main>
-            <section id="home">
-              <Hero data={data} />
-            </section>
-            <section id="about" className="bg-primary-dark">
-              <About data={data} />
-            </section>
-            <section id="experience" className="bg-primary-black">
-              <Experience data={data} />
-            </section>
-            <section id="education" className="bg-primary-dark">
-              <Education data={data} />
-            </section>
-            <section id="tech-stack" className="bg-primary-black">
-              <TechStack data={data} />
-            </section>
-            <section id="portfolio" className="bg-primary-dark">
-              <Portfolio data={data} />
-            </section>
-            <section id="medium" className="bg-primary-black">
-              <Medium data={data} />
-            </section>
-            <section id="contact" className="bg-primary-dark">
-              <Contact data={data} />
-            </section>
-          </main>
-          <BackToTop />
-        </motion.div>
-      )}
-    </div>
+    <Router>
+      <div className="bg-primary-black text-text-primary overflow-x-hidden min-h-screen w-full">
+        <AnimatePresence>
+          {isLoading && <LoadingScreen />}
+        </AnimatePresence>
+        
+        {!isLoading && data && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full"
+          >
+            <Routes>
+              <Route 
+                path="/" 
+                element={<HomePage data={data} activeSection={activeSection} />} 
+              />
+              <Route 
+                path="/projects" 
+                element={<ProjectsPage data={data} />} 
+              />
+            </Routes>
+          </motion.div>
+        )}
+      </div>
+    </Router>
   );
 };
 
