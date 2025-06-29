@@ -35,7 +35,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
           </p>
         </motion.div>
 
-        {/* Avatar Section */}
+        {/* Enhanced Avatar Section */}
         <motion.div
           className="flex justify-center mb-12 sm:mb-16"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -60,28 +60,44 @@ const About: React.FC<AboutProps> = ({ data }) => {
                 ease: "easeInOut"
               }}
             >
-              {/* Inner container for the image */}
+              {/* Inner container for the circular image frame */}
               <div className="absolute inset-2 rounded-full overflow-hidden glass-card">
-                <img
-                  src={displayAvatar}
-                  alt={displayName}
-                  className="w-full h-full object-cover"
-                  style={{ objectFit: 'cover' }}
-                />
-                {/* Overlay for better integration */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                {/* Circular Avatar Image */}
+                <div className="w-full h-full rounded-full overflow-hidden relative">
+                  <img
+                    src={displayAvatar}
+                    alt={displayName}
+                    className="w-full h-full object-cover object-center"
+                    style={{ 
+                      objectFit: 'cover',
+                      objectPosition: 'center center'
+                    }}
+                    onError={(e) => {
+                      // Fallback to a default avatar if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=500';
+                    }}
+                  />
+                  {/* Subtle overlay for better integration with the glass effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent rounded-full" />
+                  
+                  {/* Optional: Add a subtle inner border for definition */}
+                  <div className="absolute inset-0 rounded-full border border-white/10" />
+                </div>
               </div>
               
-              {/* Glow effect */}
+              {/* Enhanced glow effect */}
               <motion.div
                 className="absolute inset-0 rounded-full"
                 style={{
                   background: 'linear-gradient(45deg, #4F46E5, #9333EA, #4F46E5)',
-                  filter: 'blur(8px)',
-                  opacity: 0.3,
+                  filter: 'blur(12px)',
+                  opacity: 0.4,
+                  zIndex: -1,
                 }}
                 animate={{
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  scale: [1, 1.1, 1],
                 }}
                 transition={{
                   duration: 3,
@@ -90,6 +106,21 @@ const About: React.FC<AboutProps> = ({ data }) => {
                 }}
               />
             </motion.div>
+            
+            {/* Floating indicator dots */}
+            <motion.div
+              className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-lg"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.8, 1, 0.8],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              title="Available for work"
+            />
           </div>
         </motion.div>
 
