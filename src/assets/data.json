@@ -1,45 +1,45 @@
 {
   "personal": {
-    "name": "John Doe",
-    "title": "Full-Stack Developer & UI/UX Designer",
+    "name": "Yusuf Umar Hanafi",
+    "title": "Flutter Developer | iOS Developer",
     "tagline": "Crafting exceptional digital experiences with modern technologies",
-    "bio": "I'm a passionate full-stack developer with over 5 years of experience in creating beautiful, functional, and user-centered digital experiences. My journey began with a curiosity about how things work, which led me to pursue computer science and eventually specialize in web development.",
-    "location": "San Francisco, CA",
-    "email": "john.doe@example.com",
-    "phone": "+1 (555) 123-4567",
-    "avatar": "JD",
-    "resumeUrl": "/resume.pdf",
-    "mediumProfile": "https://medium.com/@johndoe"
+    "bio": "A hard-working, Detail-oriented, problem solver with creative solutions, and self-motivated Mobile Application Developer. Someone who has great ambition to change the world for the better through the lines of code that he wrote. Based on Steve Jobs Think Different principle. With more than 4 years of experience in mobile application development, I hope to make unique and different breakthroughs in solving problems through technology. Through mobile applications, I hope to become a world-class developer that is useful for life.",
+    "location": "Lamongan, Jawa Timur - Indonesia",
+    "email": "flyme.yusuf@gmail.com",
+    "phone": "+62-8578-5629-865",
+    "avatar": "MU",
+    "resumeUrl": "https://bit.ly/resumeYusuf",
+    "mediumProfile": "https://medium.com/@yusufhnf"
   },
   "social": [
     {
       "platform": "GitHub",
-      "url": "https://github.com/johndoe",
+      "url": "https://github.com/yusufhnf",
       "icon": "Github"
     },
     {
       "platform": "LinkedIn",
-      "url": "https://linkedin.com/in/johndoe",
+      "url": "https://linkedin.com/in/yusufhnf",
       "icon": "Linkedin"
     },
     {
       "platform": "Twitter",
-      "url": "https://twitter.com/johndoe",
+      "url": "https://twitter.com/yusufhnf",
       "icon": "Twitter"
     },
     {
       "platform": "Medium",
-      "url": "https://medium.com/@johndoe",
+      "url": "https://medium.com/@yusufhnf",
       "icon": "BookOpen"
     },
     {
       "platform": "TikTok",
-      "url": "https://tiktok.com/@johndoe",
+      "url": "https://tiktok.com/@meetucup",
       "icon": "Music"
     },
     {
       "platform": "Instagram",
-      "url": "https://instagram.com/johndoe",
+      "url": "https://instagram.com/yusufhnf",
       "icon": "Instagram"
     }
   ],
@@ -130,28 +130,19 @@
   ],
   "education": [
     {
-      "degree": "Bachelor of Science in Computer Science",
-      "institution": "University of California, Berkeley",
-      "location": "Berkeley, CA",
-      "period": "2015 - 2019",
-      "gpa": "3.8/4.0",
+      "degree": "Bachelor of Engineering in Computer Engineering",
+      "institution": "Institut Teknologi Sepuluh Nopember (ITS), Surabaya",
+      "location": "Surabaya, ID",
+      "period": "2016 - 2020",
+      "gpa": "3.2/4.0",
       "achievements": [
-        "Graduated Magna Cum Laude",
-        "Dean's List for 6 semesters",
-        "President of Computer Science Club"
+        "Finalist Toyota Fun Code Hackathon 2019 ‑ National",
+        "3rd place Software Development GEMASTIK XII 2019 ‑ National",
+        "1st place Startup Weekend Bandung 2018 ‑ National",
+        "1st place Application Development MAGE ITS 2018 ‑ National",
+        "3rd place Business Competition HIMATEKTRO ITS 2017 ‑ University"
       ]
-    },
-    {
-      "degree": "Full-Stack Web Development Bootcamp",
-      "institution": "General Assembly",
-      "location": "San Francisco, CA",
-      "period": "2018",
-      "achievements": [
-        "Top 5% of cohort",
-        "Built 10+ full-stack applications",
-        "Mentored junior students"
-      ]
-    }
+    }    
   ],
   "projects": [
     {
