@@ -14,23 +14,6 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
     tools: { title: 'Tools & DevOps', skills: data.skills.tools },
   };
 
-  // Function to get gradient color based on proficiency level
-  const getProgressGradient = (level: number) => {
-    if (level >= 90) {
-      return 'from-emerald-400 via-blue-500 to-blue-600'; // Expert
-    } else if (level >= 80) {
-      return 'from-blue-400 via-blue-500 to-blue-600'; // Advanced
-    } else if (level >= 70) {
-      return 'from-cyan-400 via-blue-500 to-blue-600'; // Proficient
-    } else if (level >= 60) {
-      return 'from-yellow-400 via-orange-500 to-blue-500'; // Intermediate
-    } else if (level >= 50) {
-      return 'from-orange-400 via-orange-500 to-red-500'; // Basic
-    } else {
-      return 'from-red-400 via-red-500 to-red-600'; // Learning
-    }
-  };
-
   // Function to get proficiency label
   const getProficiencyLabel = (level: number) => {
     if (level >= 90) return 'Expert';
@@ -91,7 +74,7 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
           </div>
         </motion.div>
 
-        {/* Skills Grid */}
+        {/* Skills Grid - Card style like experience section */}
         <motion.div
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           key={activeCategory}
@@ -102,83 +85,55 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
           {categories[activeCategory as keyof typeof categories].skills.map((skill: any, index: number) => (
             <motion.div
               key={skill.name}
-              className="glass-card rounded-modern-xl p-4 sm:p-6 card-hover group glow-interactive"
+              className="glass-effect rounded-xl p-4 sm:p-6 card-hover"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02, y: -5 }}
             >
-              {/* Skill Header */}
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-1">
-                    {skill.name}
-                  </h3>
-                  <span className={`text-xs sm:text-sm font-medium ${getTextColor(skill.level)}`}>
-                    {getProficiencyLabel(skill.level)}
-                  </span>
+              <div className="flex items-start space-x-4">
+                {/* Skill Icon/Badge */}
+                <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-3 rounded-lg flex-shrink-0">
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">
+                      {skill.name.charAt(0)}
+                    </span>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <span className={`text-lg sm:text-xl font-bold ${getTextColor(skill.level)}`}>
-                    {skill.level}%
-                  </span>
-                </div>
-              </div>
-              
-              {/* Progress Bar Container */}
-              <div className="relative">
-                {/* Background Track */}
-                <div className="w-full progress-liquid rounded-full h-3 sm:h-4 overflow-hidden">
-                  {/* Animated Progress Bar */}
-                  <motion.div
-                    className={`h-full rounded-full bg-gradient-to-r ${getProgressGradient(skill.level)} relative overflow-hidden`}
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ 
-                      duration: 1.2, 
-                      delay: index * 0.1 + 0.5,
-                      ease: "easeOut"
-                    }}
-                  >
-                    {/* Enhanced Shimmer Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                      initial={{ x: '-100%' }}
-                      animate={{ x: '100%' }}
-                      transition={{
-                        duration: 1.5,
-                        delay: index * 0.1 + 1.7,
-                        ease: "easeInOut"
-                      }}
-                    />
-                    
-                    {/* Liquid Flow Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                      animate={{ x: ['-100%', '100%'] }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.2
-                      }}
-                    />
-                  </motion.div>
-                </div>
+                
+                <div className="flex-1">
+                  {/* Skill Header */}
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <h3 className="text-base sm:text-lg font-bold text-white mb-1">
+                        {skill.name}
+                      </h3>
+                      <span className={`text-xs sm:text-sm font-medium ${getTextColor(skill.level)}`}>
+                        {getProficiencyLabel(skill.level)}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className={`text-lg sm:text-xl font-bold ${getTextColor(skill.level)}`}>
+                        {skill.level}%
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Static Progress Bar */}
+                  <div className="relative">
+                    <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3 overflow-hidden">
+                      <div
+                        className={`h-full rounded-full bg-gradient-to-r ${skill.color} transition-all duration-300`}
+                        style={{ width: `${skill.level}%` }}
+                      />
+                    </div>
+                  </div>
 
-                {/* Enhanced Glow Effect on Hover */}
-                <motion.div
-                  className={`absolute inset-0 rounded-full bg-gradient-to-r ${getProgressGradient(skill.level)} opacity-0 blur-sm`}
-                  whileHover={{ opacity: 0.4 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
-
-              {/* Skill Level Indicator */}
-              <div className="flex justify-between items-center mt-3 text-xs text-text-muted">
-                <span>Beginner</span>
-                <span>Expert</span>
+                  {/* Skill Level Indicator */}
+                  <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
+                    <span>Beginner</span>
+                    <span>Expert</span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -192,45 +147,28 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="glass-card rounded-modern-xl p-6 sm:p-8 glow-interactive">
+          <div className="glass-effect rounded-xl p-6 sm:p-8">
             <h3 className="text-lg sm:text-xl font-bold mb-6 text-center gradient-text">
               Proficiency Scale
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               {[
-                { range: '90-100%', label: 'Expert', color: 'from-emerald-400 via-blue-500 to-blue-600' },
-                { range: '80-89%', label: 'Advanced', color: 'from-blue-400 via-blue-500 to-blue-600' },
-                { range: '70-79%', label: 'Proficient', color: 'from-cyan-400 via-blue-500 to-blue-600' },
-                { range: '60-69%', label: 'Intermediate', color: 'from-yellow-400 via-orange-500 to-blue-500' },
-                { range: '50-59%', label: 'Basic', color: 'from-orange-400 via-orange-500 to-red-500' },
-                { range: '0-49%', label: 'Learning', color: 'from-red-400 via-red-500 to-red-600' },
+                { range: '90-100%', label: 'Expert', color: 'from-emerald-400 to-emerald-600' },
+                { range: '80-89%', label: 'Advanced', color: 'from-blue-400 to-blue-600' },
+                { range: '70-79%', label: 'Proficient', color: 'from-cyan-400 to-cyan-600' },
+                { range: '60-69%', label: 'Intermediate', color: 'from-yellow-400 to-yellow-600' },
+                { range: '50-59%', label: 'Basic', color: 'from-orange-400 to-orange-600' },
+                { range: '0-49%', label: 'Learning', color: 'from-red-400 to-red-600' },
               ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <div className={`w-full h-3 rounded-full bg-gradient-to-r ${item.color} mb-2 relative overflow-hidden`}>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                      animate={{ x: ['-100%', '100%'] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.3
-                      }}
-                    />
-                  </div>
+                <div key={index} className="text-center">
+                  <div className={`w-full h-3 rounded-full bg-gradient-to-r ${item.color} mb-2`} />
                   <div className="text-xs sm:text-sm font-medium text-text-primary mb-1">
                     {item.label}
                   </div>
                   <div className="text-xs text-text-muted">
                     {item.range}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -249,16 +187,12 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {['Learning: Rust', 'Exploring: Web3', 'Interested in: AI/ML'].map((item, index) => (
-              <motion.span
+              <span
                 key={index}
-                className="liquid-glass px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm text-blue-400 micro-interaction glow-interactive"
-                whileHover={{ scale: 1.05, y: -2 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
+                className="liquid-glass px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm text-blue-400"
               >
                 {item}
-              </motion.span>
+              </span>
             ))}
           </div>
         </motion.div>
