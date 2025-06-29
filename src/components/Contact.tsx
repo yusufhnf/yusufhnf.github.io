@@ -65,14 +65,25 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
     Instagram,
   };
 
+  // Standardized social media button styling
   const getSocialButtonStyle = (platform: string) => {
+    const baseClasses = 'p-3 rounded-lg transition-all duration-300 glow-interactive';
+    
     switch (platform.toLowerCase()) {
       case 'tiktok':
-        return 'bg-black hover:bg-gray-800 text-white glow-interactive';
+        return `${baseClasses} bg-black hover:bg-gray-800 text-white border border-gray-700 hover:border-gray-600`;
       case 'instagram':
-        return 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white glow-interactive';
+        return `${baseClasses} bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white border border-purple-400`;
+      case 'github':
+        return `${baseClasses} bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 hover:border-gray-500`;
+      case 'linkedin':
+        return `${baseClasses} bg-blue-600 hover:bg-blue-700 text-white border border-blue-500 hover:border-blue-400`;
+      case 'twitter':
+        return `${baseClasses} bg-blue-500 hover:bg-blue-600 text-white border border-blue-400 hover:border-blue-300`;
+      case 'medium':
+        return `${baseClasses} bg-gray-700 hover:bg-gray-600 text-white border border-gray-600 hover:border-gray-500`;
       default:
-        return 'btn-liquid glow-interactive';
+        return `${baseClasses} btn-liquid`;
     }
   };
 
@@ -124,7 +135,8 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
 
             <div>
               <h4 className="text-base sm:text-lg font-semibold mb-4 text-white">Follow Me</h4>
-              <div className="flex flex-wrap gap-3 sm:gap-4">
+              {/* Standardized Social Media Grid */}
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
                 {data.social.map((social: any, index: number) => {
                   const IconComponent = iconMap[social.icon as keyof typeof iconMap];
                   const buttonStyle = getSocialButtonStyle(social.platform);
@@ -135,11 +147,14 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 rounded-lg transition-all ${buttonStyle}`}
+                      className={buttonStyle}
                       whileHover={{ scale: 1.1, rotate: 5, y: -2 }}
                       whileTap={{ scale: 0.9 }}
                       aria-label={social.platform}
                       title={social.platform}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
                       <IconComponent size={20} />
                     </motion.a>

@@ -612,3 +612,85 @@ textarea:focus-visible {
     line-height: 1.1;
   }
 }
+
+/* Enhanced Social Media Button Styling */
+.social-button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .social-button-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Standardized Social Media Button Dimensions */
+.social-button {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.social-button:hover::before {
+  left: 100%;
+}
+
+/* App Store Button Styling */
+.app-store-button {
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.8) 0%,
+    rgba(22, 163, 74, 0.9) 100%
+  );
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  transition: all 0.3s ease;
+}
+
+.app-store-button:hover {
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.9) 0%,
+    rgba(22, 163, 74, 1) 100%
+  );
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+.ios-store-button {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.8) 0%,
+    rgba(37, 99, 235, 0.9) 100%
+  );
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.ios-store-button:hover {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.9) 0%,
+    rgba(37, 99, 235, 1) 100%
+  );
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
