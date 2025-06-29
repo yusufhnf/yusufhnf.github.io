@@ -141,7 +141,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, data }) => {
             <span>Download Resume</span>
           </motion.button>
         </div>
-      </div>
+      </motion.div>
     </motion.nav>
   );
 };
