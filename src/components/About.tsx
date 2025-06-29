@@ -17,7 +17,6 @@ const About: React.FC<AboutProps> = ({ data }) => {
   const displayName = data.branding?.fullName || data.personal?.name || 'Developer';
   const displayAvatar = data.branding?.avatarUrl || data.personal?.avatar || 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=500';
   const aboutTitle = data.sections?.about?.title || 'About Me';
-  const aboutDescription = data.sections?.about?.description || data.personal?.bio || 'Passionate developer creating amazing digital experiences.';
 
   return (
     <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 relative">
@@ -35,7 +34,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
           </p>
         </motion.div>
 
-        {/* Enhanced Avatar Section */}
+        {/* Avatar Section - Simple without animation */}
         <motion.div
           className="flex justify-center mb-12 sm:mb-16"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -44,20 +43,11 @@ const About: React.FC<AboutProps> = ({ data }) => {
           viewport={{ once: true }}
         >
           <div className="relative">
-            {/* Animated gradient border container */}
-            <motion.div
+            {/* Static gradient border container */}
+            <div
               className="w-64 h-64 rounded-full relative overflow-hidden"
               style={{
                 background: 'linear-gradient(45deg, #4F46E5, #9333EA, #4F46E5)',
-                backgroundSize: '200% 200%',
-              }}
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
               }}
             >
               {/* Inner container for the circular image frame */}
@@ -86,8 +76,8 @@ const About: React.FC<AboutProps> = ({ data }) => {
                 </div>
               </div>
               
-              {/* Enhanced glow effect */}
-              <motion.div
+              {/* Static glow effect */}
+              <div
                 className="absolute inset-0 rounded-full"
                 style={{
                   background: 'linear-gradient(45deg, #4F46E5, #9333EA, #4F46E5)',
@@ -95,30 +85,12 @@ const About: React.FC<AboutProps> = ({ data }) => {
                   opacity: 0.4,
                   zIndex: -1,
                 }}
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
               />
-            </motion.div>
+            </div>
             
-            {/* Floating indicator dots */}
-            <motion.div
+            {/* Static indicator dot */}
+            <div
               className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-lg"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.8, 1, 0.8],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
               title="Available for work"
             />
           </div>
@@ -133,7 +105,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="glass-card rounded-xl p-6 sm:p-8 glow-interactive">
+            <div className="glass-effect rounded-xl p-4 sm:p-6 card-hover">
               <h3 className="text-xl sm:text-2xl font-bold mb-6 gradient-text">My Story</h3>
               <div className="space-y-6">
                 <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
@@ -143,14 +115,14 @@ const About: React.FC<AboutProps> = ({ data }) => {
             </div>
           </motion.div>
 
-          {/* Right column - Skills/expertise */}
+          {/* Right column - Skills/expertise with card style like experience section */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="glass-card rounded-xl p-6 sm:p-8 glow-interactive">
+            <div className="glass-effect rounded-xl p-4 sm:p-6 card-hover">
               <h3 className="text-xl sm:text-2xl font-bold mb-6 gradient-text">Expertise</h3>
               
               {/* Skills list */}
@@ -177,30 +149,25 @@ const About: React.FC<AboutProps> = ({ data }) => {
                 ))}
               </div>
 
-              {/* Achievement cards */}
-              <div className="grid grid-cols-1 gap-4">
+              {/* Achievement cards - styled like experience cards */}
+              <div className="space-y-4">
                 {data.achievements.map((achievement: any, index: number) => {
                   const IconComponent = iconMap[achievement.icon as keyof typeof iconMap];
                   return (
-                    <motion.div
+                    <div
                       key={index}
-                      className="liquid-glass rounded-lg p-4 card-hover glow-interactive"
-                      whileHover={{ scale: 1.02, y: -2 }}
-                      transition={{ duration: 0.3 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
+                      className="glass-effect rounded-lg p-4 card-hover"
                     >
-                      <div className="flex items-center space-x-4">
-                        <div className="btn-liquid p-3 rounded-lg">
+                      <div className="flex items-start space-x-4">
+                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-3 rounded-lg flex-shrink-0">
                           <IconComponent size={20} className="text-white" />
                         </div>
-                        <div>
-                          <h4 className="text-lg font-bold gradient-text">{achievement.title}</h4>
-                          <p className="text-sm text-text-muted">{achievement.description}</p>
+                        <div className="flex-1">
+                          <h4 className="text-lg font-bold text-white mb-2">{achievement.title}</h4>
+                          <p className="text-sm text-gray-300">{achievement.description}</p>
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
@@ -221,9 +188,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
             {data.values.map((value: any, index: number) => (
               <motion.div
                 key={index}
-                className="glass-card rounded-xl p-4 sm:p-6 card-hover glow-interactive"
-                whileHover={{ scale: 1.02, y: -3 }}
-                transition={{ duration: 0.3 }}
+                className="glass-effect rounded-xl p-4 sm:p-6 card-hover"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
