@@ -13,6 +13,12 @@ const About: React.FC<AboutProps> = ({ data }) => {
     Zap,
   };
 
+  // Use branding configuration with fallback to personal data
+  const displayName = data.branding?.fullName || data.personal?.name || 'Developer';
+  const displayAvatar = data.branding?.avatarUrl || data.personal?.avatar || 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=500';
+  const aboutTitle = data.sections?.about?.title || 'About Me';
+  const aboutDescription = data.sections?.about?.description || data.personal?.bio || 'Passionate developer creating amazing digital experiences.';
+
   return (
     <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
@@ -23,7 +29,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text" data-text="About Me">About Me</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text" data-text={aboutTitle}>{aboutTitle}</h2>
           <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto">
             Passionate about creating digital experiences that make a difference
           </p>
@@ -57,8 +63,8 @@ const About: React.FC<AboutProps> = ({ data }) => {
               {/* Inner container for the image */}
               <div className="absolute inset-2 rounded-full overflow-hidden glass-card">
                 <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=500"
-                  alt={data.personal.name}
+                  src={displayAvatar}
+                  alt={displayName}
                   className="w-full h-full object-cover"
                   style={{ objectFit: 'cover' }}
                 />
@@ -100,7 +106,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
               <h3 className="text-xl sm:text-2xl font-bold mb-6 gradient-text">My Story</h3>
               <div className="space-y-6">
                 <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-                  {data.personal.bio}
+                  {aboutDescription}
                 </p>
                 <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
                   I believe in the power of clean code, intuitive design, and continuous learning. 

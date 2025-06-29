@@ -1,5 +1,19 @@
 import { useState, useEffect } from 'react';
 
+interface BrandingConfig {
+  name: string;
+  fullName: string;
+  avatarUrl: string;
+  avatar: string;
+}
+
+interface SectionConfig {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  avatar?: string;
+}
+
 interface PersonalInfo {
   name: string;
   title: string;
@@ -66,6 +80,11 @@ interface Value {
 }
 
 interface PortfolioData {
+  branding: BrandingConfig;
+  sections: {
+    home: SectionConfig;
+    about: SectionConfig;
+  };
   personal: PersonalInfo;
   social: SocialLink[];
   skills: {
@@ -80,6 +99,43 @@ interface PortfolioData {
   values: Value[];
 }
 
+// Template interpolation function
+const interpolateTemplate = (template: string, data: any): string => {
+  return template.replace(/\{\{([^}]+)\}\}/g, (match, path) => {
+    const keys = path.trim().split('.');
+    let value = data;
+    
+    for (const key of keys) {
+      if (value && typeof value === 'object' && key in value) {
+        value = value[key];
+      } else {
+        return match; // Return original if path not found
+      }
+    }
+    
+    return typeof value === 'string' ? value : match;
+  });
+};
+
+// Process sections with template interpolation
+const processSections = (sections: any, data: PortfolioData) => {
+  const processed: any = {};
+  
+  for (const [sectionKey, sectionValue] of Object.entries(sections)) {
+    processed[sectionKey] = {};
+    
+    for (const [key, value] of Object.entries(sectionValue as any)) {
+      if (typeof value === 'string') {
+        processed[sectionKey][key] = interpolateTemplate(value, data);
+      } else {
+        processed[sectionKey][key] = value;
+      }
+    }
+  }
+  
+  return processed;
+};
+
 export const useData = () => {
   const [data, setData] = useState<PortfolioData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -92,8 +148,15 @@ export const useData = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
-        const jsonData = await response.json();
-        setData(jsonData);
+        const rawData = await response.json();
+        
+        // Process template interpolation
+        const processedData = {
+          ...rawData,
+          sections: processSections(rawData.sections, rawData)
+        };
+        
+        setData(processedData);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {

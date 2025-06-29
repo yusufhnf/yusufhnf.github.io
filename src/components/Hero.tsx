@@ -22,6 +22,12 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
     }
   };
 
+  // Use branding configuration with fallback to personal data
+  const displayName = data.branding?.fullName || data.personal?.name || 'Developer';
+  const displayTitle = data.sections?.home?.subtitle || data.personal?.title || 'Software Developer';
+  const displayTagline = data.sections?.home?.tagline || data.personal?.tagline || 'Creating amazing digital experiences';
+  const displayAvatar = data.branding?.avatar || data.personal?.avatar || 'D';
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Enhanced Background Animation */}
@@ -90,7 +96,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
           >
             <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full liquid-glass p-1 glow-interactive">
               <div className="w-full h-full rounded-full glass-effect flex items-center justify-center">
-                <span className="text-2xl sm:text-4xl font-bold gradient-text">{data.personal.avatar}</span>
+                <span className="text-2xl sm:text-4xl font-bold gradient-text">{displayAvatar}</span>
               </div>
             </div>
           </motion.div>
@@ -103,7 +109,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <span className="gradient-text" data-text={data.personal.name}>{data.personal.name}</span>
+            <span className="gradient-text" data-text={displayName}>{displayName}</span>
           </motion.h1>
 
           {/* Professional title */}
@@ -113,7 +119,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            {data.personal.title}
+            {displayTitle}
           </motion.h2>
 
           {/* Tagline */}
@@ -123,7 +129,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            {data.personal.tagline}
+            {displayTagline}
           </motion.p>
 
           {/* Call-to-action buttons */}

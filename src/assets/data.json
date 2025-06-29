@@ -1,4 +1,22 @@
 {
+  "branding": {
+    "name": "Yusuf",
+    "fullName": "Yusuf Umar Hanafi",
+    "avatarUrl": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=500",
+    "avatar": "YU"
+  },
+  "sections": {
+    "home": {
+      "title": "Hi, I'm {{branding.name}}",
+      "subtitle": "Flutter Developer | iOS Developer",
+      "tagline": "Crafting exceptional digital experiences with modern technologies"
+    },
+    "about": {
+      "title": "About Me",
+      "description": "I'm {{branding.fullName}}, a passionate developer...",
+      "avatar": "{{branding.avatarUrl}}"
+    }
+  },
   "personal": {
     "name": "Yusuf Umar Hanafi",
     "title": "Flutter Developer | iOS Developer",

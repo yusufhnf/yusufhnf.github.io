@@ -46,6 +46,10 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, data }) => {
     link.click();
   };
 
+  // Use branding configuration with fallback to personal data
+  const displayAvatar = data.branding?.avatar || data.personal?.avatar || 'D';
+  const displayName = data.branding?.fullName || data.personal?.name || 'Developer';
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
@@ -60,9 +64,9 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, data }) => {
           <motion.div
             className="text-2xl font-bold gradient-text glow-interactive"
             whileHover={{ scale: 1.05 }}
-            data-text={data.personal.avatar}
+            data-text={displayAvatar}
           >
-            {data.personal.avatar}
+            {displayAvatar}
           </motion.div>
 
           {/* Desktop Navigation */}
