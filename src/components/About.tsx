@@ -106,16 +106,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
               <h3 className="text-xl sm:text-2xl font-bold mb-6 gradient-text">My Story</h3>
               <div className="space-y-6">
                 <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-                  {aboutDescription}
-                </p>
-                <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-                  I believe in the power of clean code, intuitive design, and continuous learning. 
-                  When I'm not coding, you can find me exploring new technologies, contributing to 
-                  open-source projects, or sharing knowledge with the developer community.
-                </p>
-                <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-                  My goal is to bridge the gap between design and development, creating solutions 
-                  that are not only technically sound but also provide exceptional user experiences.
+                  {data.personal.bio}
                 </p>
               </div>
             </div>
@@ -134,11 +125,11 @@ const About: React.FC<AboutProps> = ({ data }) => {
               {/* Skills list */}
               <div className="space-y-4 mb-8">
                 {[
-                  'Full-Stack Web Development',
+                  'Flutter Development',
+                  'iOS Development (Swift)',
                   'Mobile App Development',
-                  'UI/UX Design',
-                  'Cloud Architecture',
-                  'DevOps & CI/CD',
+                  'Cross-Platform Solutions',
+                  'UI/UX Implementation',
                   'Technical Leadership'
                 ].map((skill, index) => (
                   <motion.div
