@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Global Reset and Full Width Layout */
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +11,8 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -25,35 +28,71 @@ body {
   position: relative;
   overflow-x: hidden;
   width: 100%;
-}
-
-/* Enhanced Responsive Container */
-.responsive-container {
-  width: 100%;
-  max-width: 100vw;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
-/* Desktop Layout Optimizations */
+/* Root container full width */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Full width container utility */
+.full-width-container {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+
+/* Responsive container with proper constraints */
+.responsive-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 @media (min-width: 1024px) {
   .responsive-container {
-    max-width: 1920px; /* Support up to 1920px wide screens */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1920px;
   }
 }
 
 @media (min-width: 1440px) {
   .responsive-container {
-    max-width: 1920px;
-    padding: 0 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
 @media (min-width: 1920px) {
   .responsive-container {
-    max-width: 2560px; /* Support ultra-wide screens */
-    padding: 0 4rem;
+    max-width: 2560px;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
+}
+
+/* Section full width */
+section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Enhanced Animated Background Elements */
@@ -725,6 +764,28 @@ textarea:focus-visible {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 }
 
+/* Line Clamp Utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 /* Enhanced Desktop Responsive Grid */
 @media (min-width: 1024px) {
   .desktop-grid-4 {
@@ -758,28 +819,6 @@ textarea:focus-visible {
   .desktop-2xl-grid-8 {
     grid-template-columns: repeat(8, 1fr);
   }
-}
-
-/* Line Clamp Utilities */
-.line-clamp-1 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-}
-
-.line-clamp-2 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.line-clamp-3 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
 }
 
 /* Enhanced Responsive Spacing */

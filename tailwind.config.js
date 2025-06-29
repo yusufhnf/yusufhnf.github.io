@@ -6,6 +6,51 @@ export default {
   ],
   theme: {
     extend: {
+      // Enhanced screen breakpoints for better responsive design
+      screens: {
+        'xs': '475px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        '3xl': '1920px',
+        '4xl': '2560px',
+      },
+
+      // Enhanced max-width utilities for full-width layouts
+      maxWidth: {
+        'none': 'none',
+        'xs': '20rem',
+        'sm': '24rem',
+        'md': '28rem',
+        'lg': '32rem',
+        'xl': '36rem',
+        '2xl': '42rem',
+        '3xl': '48rem',
+        '4xl': '56rem',
+        '5xl': '64rem',
+        '6xl': '72rem',
+        '7xl': '80rem',
+        'full': '100%',
+        'screen-sm': '640px',
+        'screen-md': '768px',
+        'screen-lg': '1024px',
+        'screen-xl': '1280px',
+        'screen-2xl': '1536px',
+        'screen-3xl': '1920px',
+        'screen-4xl': '2560px',
+      },
+
+      // Enhanced width utilities
+      width: {
+        'screen': '100vw',
+        'full': '100%',
+        'fit': 'fit-content',
+        'min': 'min-content',
+        'max': 'max-content',
+      },
+
       colors: {
         // Enhanced Dark Mode Color System with Liquid Glass Support
         primary: {
