@@ -67,7 +67,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
 
   // Standardized social media button styling
   const getSocialButtonStyle = (platform: string) => {
-    const baseClasses = 'p-3 rounded-lg transition-all duration-300 glow-interactive';
+    const baseClasses = 'p-3 rounded-lg transition-all duration-300';
     
     switch (platform.toLowerCase()) {
       case 'tiktok':
@@ -104,159 +104,167 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-          {/* Contact Information */}
+          {/* Contact Information - Card style like experience section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 gradient-text">Let's Connect</h3>
-            
-            <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={index}
-                  href={info.href}
-                  className="flex items-center space-x-4 glass-card rounded-lg p-4 hover:bg-white/10 transition-colors group card-hover glow-interactive"
-                  whileHover={{ scale: 1.02, x: 10 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="btn-liquid p-3 rounded-lg group-hover:scale-110 transition-transform">
-                    <info.icon size={20} className="text-white" />
+            <div className="glass-effect rounded-xl p-6 sm:p-8 card-hover">
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 gradient-text">Let's Connect</h3>
+              
+              {/* Contact Info Cards - styled like experience cards */}
+              <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+                {contactInfo.map((info, index) => (
+                  <div
+                    key={index}
+                    className="glass-effect rounded-lg p-4 card-hover"
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-3 rounded-lg flex-shrink-0">
+                        <info.icon size={20} className="text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-white mb-2">{info.label}</h4>
+                        <p className="text-sm sm:text-base text-gray-300">{info.value}</p>
+                        {info.href !== '#' && (
+                          <a
+                            href={info.href}
+                            className="inline-block mt-2 text-blue-400 hover:text-blue-300 text-sm transition-colors"
+                          >
+                            Contact via {info.label.toLowerCase()}
+                          </a>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">{info.label}</p>
-                    <p className="text-white font-medium text-sm sm:text-base">{info.value}</p>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            <div>
-              <h4 className="text-base sm:text-lg font-semibold mb-4 text-white">Follow Me</h4>
-              {/* Standardized Social Media Grid */}
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
-                {data.social.map((social: any, index: number) => {
-                  const IconComponent = iconMap[social.icon as keyof typeof iconMap];
-                  const buttonStyle = getSocialButtonStyle(social.platform);
-                  
-                  return (
-                    <motion.a
-                      key={index}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={buttonStyle}
-                      whileHover={{ scale: 1.1, rotate: 5, y: -2 }}
-                      whileTap={{ scale: 0.9 }}
-                      aria-label={social.platform}
-                      title={social.platform}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      <IconComponent size={20} />
-                    </motion.a>
-                  );
-                })}
+              {/* Social Media Section */}
+              <div>
+                <h4 className="text-base sm:text-lg font-semibold mb-4 text-white">Follow Me</h4>
+                {/* Social Media Grid */}
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                  {data.social.map((social: any, index: number) => {
+                    const IconComponent = iconMap[social.icon as keyof typeof iconMap];
+                    const buttonStyle = getSocialButtonStyle(social.platform);
+                    
+                    return (
+                      <a
+                        key={index}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={buttonStyle}
+                        aria-label={social.platform}
+                        title={social.platform}
+                      >
+                        <IconComponent size={20} />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Card style */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="glass-card rounded-xl p-6 sm:p-8">
-              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Name
+            <div className="glass-effect rounded-xl p-6 sm:p-8 card-hover">
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 gradient-text">Send Message</h3>
+              
+              <form onSubmit={handleSubmit}>
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 text-sm sm:text-base"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 text-sm sm:text-base"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-4 sm:mb-6">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                    Subject
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 text-sm sm:text-base"
-                    placeholder="Your name"
+                    placeholder="What's this about?"
                   />
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email
+
+                <div className="mb-4 sm:mb-6">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Message
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 text-sm sm:text-base"
-                    placeholder="your.email@example.com"
+                    rows={5}
+                    className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 resize-none text-sm sm:text-base"
+                    placeholder="Tell me about your project..."
                   />
                 </div>
-              </div>
 
-              <div className="mb-4 sm:mb-6">
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 text-sm sm:text-base"
-                  placeholder="What's this about?"
-                />
-              </div>
-
-              <div className="mb-4 sm:mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 resize-none text-sm sm:text-base"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full btn-liquid disabled:opacity-50 disabled:cursor-not-allowed px-6 sm:px-8 py-3 rounded-lg font-semibold text-white flex items-center justify-center space-x-2 transition-all text-sm sm:text-base glow-interactive"
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </motion.button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full btn-liquid disabled:opacity-50 disabled:cursor-not-allowed px-6 sm:px-8 py-3 rounded-lg font-semibold text-white flex items-center justify-center space-x-2 transition-all text-sm sm:text-base"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      <span>Send Message</span>
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>
