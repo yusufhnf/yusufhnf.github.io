@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
   };
 
   // Use branding configuration with fallback to personal data
-  const displayName = data.branding?.fullName || data.personal?.name || 'Developer';
+  const displayName = data.branding?.brandingName || data.personal?.name || 'Developer';
   const displayTitle = data.sections?.home?.subtitle || data.personal?.title || 'Software Developer';
   const displayTagline = data.sections?.home?.tagline || data.personal?.tagline || 'Creating amazing digital experiences';
   const displayAvatar = data.branding?.avatar || data.personal?.avatar || 'D';
