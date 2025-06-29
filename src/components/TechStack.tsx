@@ -14,6 +14,51 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
     tools: { title: 'Tools & DevOps', skills: data.skills.tools },
   };
 
+  // Function to get proper Tailwind gradient colors based on skill name and level
+  const getProgressGradient = (skillName: string, level: number) => {
+    // Map specific skills to their appropriate colors
+    const skillColorMap: { [key: string]: string } = {
+      'Flutter': 'from-blue-400 to-cyan-500',
+      'Swift': 'from-orange-400 to-red-500',
+      'SwiftUI': 'from-blue-500 to-blue-600',
+      'UIKit': 'from-gray-600 to-gray-700',
+      'Kotlin': 'from-purple-500 to-purple-600',
+      'Dart': 'from-blue-400 to-cyan-500',
+      'Firebase': 'from-yellow-400 to-orange-500',
+      'REST APIs': 'from-green-500 to-green-600',
+      'GraphQL': 'from-pink-500 to-pink-600',
+      'Node.js': 'from-green-500 to-green-600',
+      'Laravel': 'from-red-500 to-red-600',
+      'C++': 'from-blue-600 to-blue-700',
+      'Git': 'from-orange-500 to-orange-600',
+      'GitHub Actions': 'from-gray-600 to-gray-700',
+      'Azure DevOps': 'from-blue-500 to-blue-600',
+      'Jira': 'from-blue-400 to-blue-500',
+      'Figma': 'from-purple-500 to-purple-600',
+      'Xcode': 'from-blue-400 to-teal-500'
+    };
+
+    // Return specific color if mapped, otherwise use level-based colors
+    if (skillColorMap[skillName]) {
+      return skillColorMap[skillName];
+    }
+
+    // Fallback to level-based colors
+    if (level >= 90) {
+      return 'from-emerald-400 to-emerald-600';
+    } else if (level >= 80) {
+      return 'from-blue-400 to-blue-600';
+    } else if (level >= 70) {
+      return 'from-cyan-400 to-cyan-600';
+    } else if (level >= 60) {
+      return 'from-yellow-400 to-orange-500';
+    } else if (level >= 50) {
+      return 'from-orange-400 to-red-500';
+    } else {
+      return 'from-red-400 to-red-600';
+    }
+  };
+
   // Function to get proficiency label
   const getProficiencyLabel = (level: number) => {
     if (level >= 90) return 'Expert';
@@ -118,12 +163,18 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
                     </div>
                   </div>
                   
-                  {/* Static Progress Bar */}
+                  {/* Fixed Progress Bar with proper colors */}
                   <div className="relative">
-                    <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3 overflow-hidden">
-                      <div
-                        className={`h-full rounded-full bg-gradient-to-r ${skill.color} transition-all duration-300`}
-                        style={{ width: `${skill.level}%` }}
+                    <div className="w-full bg-gray-800 rounded-full h-2 sm:h-3 overflow-hidden">
+                      <motion.div
+                        className={`h-full rounded-full bg-gradient-to-r ${getProgressGradient(skill.name, skill.level)} transition-all duration-500`}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${skill.level}%` }}
+                        transition={{ 
+                          duration: 1.2, 
+                          delay: index * 0.1 + 0.5,
+                          ease: "easeOut"
+                        }}
                       />
                     </div>
                   </div>
@@ -156,8 +207,8 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
                 { range: '90-100%', label: 'Expert', color: 'from-emerald-400 to-emerald-600' },
                 { range: '80-89%', label: 'Advanced', color: 'from-blue-400 to-blue-600' },
                 { range: '70-79%', label: 'Proficient', color: 'from-cyan-400 to-cyan-600' },
-                { range: '60-69%', label: 'Intermediate', color: 'from-yellow-400 to-yellow-600' },
-                { range: '50-59%', label: 'Basic', color: 'from-orange-400 to-orange-600' },
+                { range: '60-69%', label: 'Intermediate', color: 'from-yellow-400 to-orange-500' },
+                { range: '50-59%', label: 'Basic', color: 'from-orange-400 to-red-500' },
                 { range: '0-49%', label: 'Learning', color: 'from-red-400 to-red-600' },
               ].map((item, index) => (
                 <div key={index} className="text-center">
