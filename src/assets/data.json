@@ -45,87 +45,127 @@
   ],
   "skills": {
     "frontend": [
-      { "name": "React", "level": 95, "color": "from-blue-500 to-cyan-500" },
-      { "name": "TypeScript", "level": 90, "color": "from-blue-600 to-blue-400" },
-      { "name": "Next.js", "level": 85, "color": "from-gray-700 to-gray-500" },
-      { "name": "Vue.js", "level": 80, "color": "from-green-500 to-green-400" },
-      { "name": "Tailwind CSS", "level": 95, "color": "from-teal-500 to-cyan-500" },
-      { "name": "Framer Motion", "level": 85, "color": "from-purple-500 to-pink-500" }
+      { "name": "Flutter", "level": 95, "color": "from-blue-500 to-cyan-500" },
+      { "name": "Swift", "level": 85, "color": "from-orange-500 to-red-500" },
+      { "name": "SwiftUI", "level": 80, "color": "from-blue-600 to-blue-400" },
+      { "name": "UIKit", "level": 85, "color": "from-gray-700 to-gray-500" },
+      { "name": "Kotlin", "level": 80, "color": "from-purple-500 to-purple-400" },
+      { "name": "Dart", "level": 95, "color": "from-blue-500 to-cyan-500" }
     ],
     "backend": [
-      { "name": "Node.js", "level": 90, "color": "from-green-600 to-green-400" },
-      { "name": "Python", "level": 85, "color": "from-yellow-500 to-yellow-400" },
-      { "name": "Express.js", "level": 88, "color": "from-gray-600 to-gray-400" },
-      { "name": "PostgreSQL", "level": 82, "color": "from-blue-700 to-blue-500" },
-      { "name": "MongoDB", "level": 80, "color": "from-green-700 to-green-500" },
-      { "name": "GraphQL", "level": 75, "color": "from-pink-600 to-pink-400" }
+      { "name": "Firebase", "level": 90, "color": "from-yellow-500 to-orange-500" },
+      { "name": "REST APIs", "level": 85, "color": "from-green-600 to-green-400" },
+      { "name": "GraphQL", "level": 75, "color": "from-pink-600 to-pink-400" },
+      { "name": "Node.js", "level": 70, "color": "from-green-600 to-green-400" },
+      { "name": "Laravel", "level": 75, "color": "from-red-600 to-red-400" },
+      { "name": "C++", "level": 70, "color": "from-blue-700 to-blue-500" }
     ],
     "tools": [
       { "name": "Git", "level": 95, "color": "from-orange-600 to-orange-400" },
-      { "name": "Docker", "level": 80, "color": "from-blue-600 to-blue-400" },
-      { "name": "AWS", "level": 75, "color": "from-yellow-600 to-orange-500" },
-      { "name": "Figma", "level": 90, "color": "from-purple-600 to-purple-400" },
-      { "name": "Jest", "level": 85, "color": "from-red-600 to-red-400" },
-      { "name": "Webpack", "level": 78, "color": "from-blue-500 to-teal-500" }
+      { "name": "GitHub Actions", "level": 85, "color": "from-gray-600 to-gray-400" },
+      { "name": "Azure DevOps", "level": 80, "color": "from-blue-600 to-blue-400" },
+      { "name": "Jira", "level": 85, "color": "from-blue-500 to-blue-400" },
+      { "name": "Figma", "level": 80, "color": "from-purple-600 to-purple-400" },
+      { "name": "Xcode", "level": 85, "color": "from-blue-500 to-teal-500" }
     ]
   },
   "experience": [
     {
-      "title": "Senior Full-Stack Developer",
-      "company": "TechCorp Solutions",
-      "location": "San Francisco, CA",
-      "period": "2022 - Present",
-      "description": "Leading development of scalable web applications using React, Node.js, and AWS. Mentoring junior developers and architecting microservices solutions.",
+      "title": "Senior Flutter Developer",
+      "company": "Wolkk",
+      "location": "Remote",
+      "period": "October 2022 - Present",
+      "description": "Leading Flutter development for cutting-edge applications with Clean Architecture principles, BLoC state management, and CI/CD implementation through GitHub Actions.",
       "responsibilities": [
-        "Architect and develop scalable microservices using Node.js and Docker",
-        "Lead code reviews and establish development best practices across teams",
-        "Mentor 5+ junior developers and conduct technical interviews",
-        "Collaborate with product managers to define technical requirements and roadmaps",
-        "Optimize application performance resulting in 40% faster load times"
+        "Developed a cutting-edge Flutter application for Wolkk, integrating BLoC Cubit for state management, adhering to Clean Architecture principles, ensuring clean code practices, and implementing CI/CD pipelines through GitHub Actions for seamless deployment processes",
+        "Created and implemented a standardized Flutter project template with optimized initialization code and project structure for improved development efficiency and consistency across Wolkk's projects",
+        "Integrated platform channels in Flutter applications at Wolkk to seamlessly connect and synchronize native code, enhancing the overall functionality and performance of the application",
+        "Led a development team in creating a cutting-edge POS application for a high-profile German client using Flutter on the Windows desktop platform. Directed communication with product managers, product owners, and clients to ensure project alignment, while providing code reviews, developmental guidance, and maintaining project progress",
+        "Implemented a robust method channel framework in Flutter to seamlessly integrate native code written in Kotlin, C++, and Swift, enhancing the performance and functionality of Wolkk's mobile applications"
       ],
       "achievements": [
-        "Increased application performance by 40% through optimization",
-        "Led a team of 5 developers on multiple projects",
-        "Implemented CI/CD pipelines reducing deployment time by 60%"
-      ]
+        "Successfully contributed to aad_oauth package with adding Azure Active Directory running in Windows Platform",
+        "Successfully implemented Android keyboard behavior and custom keyboard layout with multiple language in Windows Platform",
+        "Successfully implemented multiple screen Flutter app for customer in Point-of-Sale app",
+        "Successfully created engelhorn_package_api package for Flutter to network consumer handler multiplatform apps",
+        "Successfully led Engelhorn Stationary Development team from zero"
+      ],
+      "technologies": ["Flutter for Windows", "Flutter for Web", "Flutter for Android", "Kotlin", "C++", "Azure Active Directory", "Jira", "Teams", "Confluence", "Miro"]
     },
     {
-      "title": "Full-Stack Developer",
-      "company": "Digital Innovations Inc.",
-      "location": "New York, NY",
-      "period": "2020 - 2022",
-      "description": "Developed and maintained multiple client-facing applications using modern web technologies. Collaborated with design teams to implement pixel-perfect UIs.",
+      "title": "Flutter Developer",
+      "company": "Volantis.io",
+      "location": "Remote",
+      "period": "October 2021 - October 2022",
+      "description": "Contributed to innovative Flutter applications with Firebase integration, custom method channels, and performance optimization using MVVM architecture and Cubit state management.",
       "responsibilities": [
-        "Develop responsive web applications using React, TypeScript, and Node.js",
-        "Integrate RESTful APIs and third-party services including payment gateways",
-        "Collaborate with UX/UI designers to implement pixel-perfect interfaces",
-        "Write comprehensive unit and integration tests using Jest and Cypress",
-        "Participate in agile development processes and sprint planning"
+        "Contributed to the development of the CUiT app by collaborating closely with the Flutter team at Volantis.io, implementing innovative UI/UX features that enhanced user engagement and overall app performance",
+        "Implemented Firebase Authentication, Cloud Firestore, Firebase Crashlytics, Firebase App Distribution, and Firebase Dynamic Links into Volantis.io's Flutter app, optimizing user experience and ensuring seamless functionality across all platforms",
+        "Implemented a custom Flutter method channel to efficiently integrate a camera AI 3rd party library in Kotlin and Swift, enhancing performance and user experience for CUiT",
+        "Implemented optimized performance enhancements in the Buzzco app by integrating advanced Flutter packages and applying best practices in MVVM architecture and Cubit state management, resulting in a seamless user experience and efficient app functionality"
       ],
       "achievements": [
-        "Built 15+ responsive web applications",
-        "Reduced bug reports by 35% through comprehensive testing",
-        "Integrated third-party APIs and payment systems"
-      ]
+        "Successfully implemented 3rd party library Banuba Camera SDK to Flutter Android and iOS using Method Channel",
+        "Successfully increased 35% CUiT app performance",
+        "Implemented unit test and some debugging tool like Firebase Crashlytics to track app performance and bug"
+      ],
+      "technologies": ["Flutter", "Kotlin", "Swift", "Firebase Cloud Storage", "Firebase Dynamic Link", "Firebase Cloud Messaging", "Firebase App Distribution", "Firebase Crashlytics", "Jetbrains YouTrack"]
     },
     {
-      "title": "Frontend Developer",
-      "company": "StartupXYZ",
-      "location": "Austin, TX",
-      "period": "2019 - 2020",
-      "description": "Focused on creating engaging user interfaces and improving user experience. Worked closely with UX designers to bring mockups to life.",
+      "title": "Mobile Developer Lead",
+      "company": "Zeniora Education",
+      "location": "Indonesia",
+      "period": "December 2020 - February 2022",
+      "description": "Led mobile development team to achieve top 10 ranking in Play Store education platform with 4.9/5.0 rating from 1800+ reviews using Flutter with MVVM architecture and Provider state management.",
       "responsibilities": [
-        "Build interactive user interfaces using React and modern CSS frameworks",
-        "Optimize applications for maximum speed and scalability across devices",
-        "Collaborate with backend developers to integrate frontend with APIs",
-        "Implement responsive design principles for mobile-first development",
-        "Conduct user testing sessions and implement feedback-driven improvements"
+        "Led a team in the development of the Zeniora app utilizing Flutter with MVVM software architecture and Provider as state management, resulting in a seamless user experience and efficient codebase maintenance",
+        "Led the mobile development team in optimizing the Zeniora Education app to achieve a top 10 ranking in the Play Store's education platform, resulting in a remarkable 4.9/5.0 rating from over 1800 reviews",
+        "Implemented Scrum and Agile methodologies within the developer team at Zeniora Education, resulting in improved collaboration, increased productivity, and timely delivery of mobile applications",
+        "Integrated Zeniora App with Midtrans Payment Gateway in webview implementation",
+        "Implemented advanced CI/CD pipelines for the Zeniora App, automating the building, testing, and deployment processes, leading to accelerated development cycles and improved code quality"
       ],
       "achievements": [
-        "Improved user engagement by 50% through UI/UX enhancements",
-        "Developed reusable component library",
-        "Optimized applications for mobile devices"
-      ]
+        "Achieved a top 10 app ranking in the Play Store's education platform in 2019",
+        "Got 1800++ positive reviews with 4.9/5.0 rating in Play Store",
+        "Successfully led Zeniora Development team from zero"
+      ],
+      "technologies": ["Flutter", "Laravel", "Provider", "MVVM", "Midtrans Payment Gateway", "CI/CD"]
+    },
+    {
+      "title": "iOS Developer Internship",
+      "company": "Apple Developer Academy @UC",
+      "location": "Surabaya, Indonesia",
+      "period": "February 2021 - January 2022",
+      "description": "Developed award-winning iOS applications including WWDC 2021 Swift Student Challenge winner, focusing on Swift, UIKit, SwiftUI, and Apple ecosystem integration.",
+      "responsibilities": [
+        "Developed an interactive and educational COVID-19 game using Swift Playground, recognized with the prestigious WWDC 2021 award from Apple Inc for innovation and creativity",
+        "Created a portfolio of iOS applications at the Apple Developer Academy using Swift, UIKit, and SwiftUI, applying MVVM and VIPER architecture patterns to deliver intuitive user interfaces and robust functionality",
+        "Designed and implemented real-time heart rate monitoring functionality for the emergency safety app on iOS and watchOS, utilizing Swift to ensure seamless integration with Apple devices",
+        "Collaborated with a multidisciplinary team at the Apple Developer Academy | UC to design and develop a cutting-edge iOS application that showcased innovative features and seamless user experience"
+      ],
+      "achievements": [
+        "Awardee WWDC21 Swift Student Challenge Award"
+      ],
+      "technologies": ["SwiftUI", "UIKit", "Apple HealthKit", "Jira", "Miro", "Apple WatchKit", "Swift Playground"]
+    },
+    {
+      "title": "Laboratory Research Assistant",
+      "company": "B201 Telematics Laboratory",
+      "location": "Surabaya, Indonesia",
+      "period": "January 2017 - September 2020",
+      "description": "Led multidisciplinary teams in developing groundbreaking multimedia applications and provided Flutter mentorship while managing laboratory operations and conducting programming workshops.",
+      "responsibilities": [
+        "Led a multidisciplinary team in the design and development of a groundbreaking multimedia application that revolutionized data visualization in telematics research at B201 Telematics Laboratory",
+        "Assisted in conducting research on cutting-edge multimedia technologies at the B201 Telematics Laboratory, leading to the development of innovative applications that pushed the boundaries of the field",
+        "Provided personalized Flutter mentorship to students at B201 Telematics Laboratory, guiding them in developing innovative mobile applications and honing their programming skills",
+        "Developed and implemented a comprehensive laboratory practicum program for new students in the Electrical Technology Faculty, improving hands-on learning experiences and knowledge retention. Led and supervised assistants in effectively managing laboratory tests and ensuring seamless operations at the B201 Telematics Laboratory",
+        "Assisted in conducting interactive C++ programming workshops for students at Sekolah Tinggi Teknologi Angkatan Laut (STTAL), enhancing their foundational skills and understanding of programming concepts"
+      ],
+      "achievements": [
+        "Led programming laboratory for Electrical faculty students",
+        "Initiated mobile programming group for Computer Engineering students"
+      ],
+      "technologies": ["Android Java", "Android Kotlin", "Flutter", "C++", "Python"]
     }
   ],
   "education": [
