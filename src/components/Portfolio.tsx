@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Code, Layers, Smartphone, Calendar } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ProjectModal from './ProjectModal';
 
@@ -43,6 +43,34 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   const handleViewAllClick = () => {
     navigate('/projects');
   };
+
+  // Portfolio statistics data
+  const portfolioStats = [
+    {
+      icon: Code,
+      title: `${data.projects.length} Projects`,
+      description: 'Successfully delivered',
+      color: 'from-blue-500 to-blue-600'
+    },
+    {
+      icon: Layers,
+      title: `${data.projects.filter((p: any) => p.category === 'fullstack').length} Full Stack`,
+      description: 'Complete solutions',
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      icon: Smartphone,
+      title: `${data.projects.filter((p: any) => p.category === 'frontend').length} Frontend`,
+      description: 'User interfaces',
+      color: 'from-purple-500 to-purple-600'
+    },
+    {
+      icon: Calendar,
+      title: '7+ Years',
+      description: 'Development experience',
+      color: 'from-orange-500 to-orange-600'
+    }
+  ];
 
   return (
     <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
@@ -223,64 +251,37 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           </motion.div>
         )}
 
-        {/* Portfolio Summary */}
+        {/* Portfolio Summary - Card style like experience section */}
         <motion.div
-          className="mt-16 sm:mt-20 text-center"
+          className="mt-16 sm:mt-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="glass-card rounded-modern-xl p-6 sm:p-8 glow-interactive">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 gradient-text">
+          <div className="glass-effect rounded-xl p-6 sm:p-8 card-hover">
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 gradient-text text-center">
               Portfolio Highlights
             </h3>
             
-            {/* Portfolio Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-              <motion.div
-                className="text-center"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">
-                  {data.projects.length}
+            {/* Portfolio Stats - Card style like experience cards */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {portfolioStats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="glass-effect rounded-lg p-4 card-hover"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`bg-gradient-to-r ${stat.color} p-3 rounded-lg flex-shrink-0`}>
+                      <stat.icon size={20} className="text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-white mb-2">{stat.title}</h4>
+                      <p className="text-sm text-gray-300">{stat.description}</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm text-gray-400">Total Projects</div>
-              </motion.div>
-              
-              <motion.div
-                className="text-center"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">
-                  {data.projects.filter((p: any) => p.category === 'fullstack').length}
-                </div>
-                <div className="text-sm text-gray-400">Full Stack</div>
-              </motion.div>
-              
-              <motion.div
-                className="text-center"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">
-                  {data.projects.filter((p: any) => p.category === 'frontend').length}
-                </div>
-                <div className="text-sm text-gray-400">Frontend</div>
-              </motion.div>
-              
-              <motion.div
-                className="text-center"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="text-2xl sm:text-3xl font-bold text-orange-400 mb-2">
-                  7+
-                </div>
-                <div className="text-sm text-gray-400">Years Experience</div>
-              </motion.div>
+              ))}
             </div>
           </div>
         </motion.div>
