@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import ProjectModal from './ProjectModal';
 
 interface PortfolioProps {
@@ -24,6 +24,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     ? data.projects 
     : data.projects.filter((project: any) => project.category === activeFilter);
 
+  // Show only first 6 projects on the main page
+  const displayedProjects = filteredProjects.slice(0, 6);
+  const hasMoreProjects = filteredProjects.length > 6;
+
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
     setIsModalOpen(true);
@@ -32,6 +36,15 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
+  };
+
+  const handleShowMoreClick = () => {
+    // For now, scroll to contact section or implement navigation to dedicated portfolio page
+    // In a real application, this would navigate to a dedicated portfolio page
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -80,7 +93,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           layout
         >
-          {filteredProjects.map((project: any, index: number) => (
+          {displayedProjects.map((project: any, index: number) => (
             <motion.div
               key={project.id}
               className="glass-card rounded-xl overflow-hidden group card-hover cursor-pointer glow-interactive"
@@ -162,6 +175,37 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           ))}
         </motion.div>
 
+        {/* Show More Button */}
+        {hasMoreProjects && (
+          <motion.div
+            className="flex justify-center mt-12 sm:mt-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <motion.button
+              onClick={handleShowMoreClick}
+              className="group inline-flex items-center space-x-3 btn-liquid px-8 py-4 rounded-modern font-semibold text-base transition-all glow-interactive"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>View All Projects</span>
+              <motion.div
+                className="flex items-center"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ArrowRight size={20} />
+              </motion.div>
+              <span className="text-sm text-blue-200 opacity-80">
+                ({filteredProjects.length - 6} more)
+              </span>
+            </motion.button>
+          </motion.div>
+        )}
+
+        {/* No projects message */}
         {filteredProjects.length === 0 && (
           <motion.div
             className="text-center py-12"
@@ -172,6 +216,72 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
             <p className="text-gray-400 text-lg">No projects found for this category.</p>
           </motion.div>
         )}
+
+        {/* Portfolio Summary */}
+        <motion.div
+          className="mt-16 sm:mt-20 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="glass-card rounded-modern-xl p-6 sm:p-8 glow-interactive">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 gradient-text">
+              Portfolio Highlights
+            </h3>
+            <p className="text-base sm:text-lg text-gray-300 mb-6 max-w-3xl mx-auto">
+              From enterprise POS systems to innovative mobile applications, my portfolio showcases 
+              a diverse range of projects built with cutting-edge technologies and best practices.
+            </p>
+            
+            {/* Portfolio Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+              <motion.div
+                className="text-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">
+                  {data.projects.length}
+                </div>
+                <div className="text-sm text-gray-400">Total Projects</div>
+              </motion.div>
+              
+              <motion.div
+                className="text-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">
+                  {data.projects.filter((p: any) => p.category === 'fullstack').length}
+                </div>
+                <div className="text-sm text-gray-400">Full Stack</div>
+              </motion.div>
+              
+              <motion.div
+                className="text-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">
+                  {data.projects.filter((p: any) => p.category === 'frontend').length}
+                </div>
+                <div className="text-sm text-gray-400">Frontend</div>
+              </motion.div>
+              
+              <motion.div
+                className="text-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-2xl sm:text-3xl font-bold text-orange-400 mb-2">
+                  7+
+                </div>
+                <div className="text-sm text-gray-400">Years Experience</div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Project Modal */}
