@@ -187,144 +187,555 @@
   "projects": [
     {
       "id": 1,
-      "title": "E-Commerce Platform",
-      "description": "A full-stack e-commerce solution with React, Node.js, and Stripe integration.",
-      "detailedDescription": "A comprehensive e-commerce platform built with modern technologies, featuring user authentication, product management, shopping cart functionality, and secure payment processing. The application includes an admin dashboard for inventory management and order tracking.",
+      "title": "Engelhorn Stationary - Wolkk",
+      "description": "A Point-of-Sale (POS) application developed for internal use at Engelhorn retail. Built on the Windows platform with Flutter.",
+      "detailedDescription": "A Point-of-Sale (POS) application developed for internal use at Engelhorn retail. Built on the Windows platform, it includes features such as transactions, purchase journals, stock management, customer display on a secondary screen, and support for multiple payment methods. The app is developed using Flutter for Windows with BLoC Cubit as state management. We applied Clean Architecture, Unit Testing, Widget Testing, CI/CD, Build Runner, and Code Coverage. It also integrates real-time communication via WebSocket.",
       "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
       "category": "fullstack",
-      "technologies": ["React", "Node.js", "MongoDB", "Stripe", "JWT", "Tailwind CSS"],
-      "liveUrl": "https://example.com",
-      "githubUrl": "https://github.com/johndoe/ecommerce",
-      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.johndoe.ecommerce",
-      "appStoreUrl": "https://apps.apple.com/app/ecommerce-app/id123456789",
-      "duration": "3 months",
-      "completedDate": "January 2024",
+      "technologies": ["Flutter for Windows", "BLoC Cubit", "Clean Architecture", "WebSocket", "CI/CD", "Unit Testing", "Widget Testing"],
+      "liveUrl": "https://engelhorn.de",
+      "githubUrl": "https://github.com/yusufhnf/engelhorn-stationary",
+      "duration": "6 months",
+      "completedDate": "March 2024",
       "features": [
-        "User authentication and authorization",
-        "Product catalog with search and filtering",
-        "Shopping cart and wishlist functionality",
-        "Secure payment processing with Stripe",
-        "Admin dashboard for inventory management",
-        "Order tracking and email notifications",
-        "Responsive design for all devices"
+        "Transaction processing and management",
+        "Purchase journals and history tracking",
+        "Stock management and inventory control",
+        "Customer display on secondary screen",
+        "Multiple payment methods support",
+        "Real-time communication via WebSocket",
+        "Clean Architecture implementation",
+        "Comprehensive testing coverage"
       ],
       "challenges": [
         {
-          "challenge": "Payment Security",
-          "solution": "Implemented Stripe's secure payment processing with PCI compliance and webhook validation for order confirmation."
+          "challenge": "Windows Platform Development",
+          "solution": "Implemented Flutter for Windows with custom platform channels to integrate native Windows functionality and keyboard behavior."
         },
         {
-          "challenge": "Performance Optimization",
-          "solution": "Used React.memo, lazy loading, and image optimization to achieve 95+ Lighthouse scores."
+          "challenge": "Multi-screen Support",
+          "solution": "Developed custom solution for customer display on secondary screen with real-time synchronization."
         }
-      ],
-      "stats": {
-        "users": "1,200+",
-        "transactions": "$50K+",
-        "uptime": "99.9%",
-        "performance": "95/100"
-      }
+      ]
     },
     {
       "id": 2,
-      "title": "Task Management App",
-      "description": "A collaborative task management application with real-time updates.",
-      "detailedDescription": "A modern task management application that enables teams to collaborate effectively with real-time updates, drag-and-drop functionality, and comprehensive project tracking. Built with React and Socket.io for seamless real-time communication.",
+      "title": "EEA Pad - Wolkk",
+      "description": "A self-checkout food and beverage ordering application with accessibility support for users with disabilities.",
+      "detailedDescription": "A self-checkout food and beverage ordering application. Its key features include accessibility support such as voice guidance and visual markers to aid users with disabilities. The app is built using Flutter for Windows with BLoC Cubit as state management. During development, we implemented Clean Architecture, Build Runner, and CI/CD.",
       "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
       "category": "frontend",
-      "technologies": ["React", "TypeScript", "Socket.io", "Tailwind CSS", "Framer Motion"],
-      "liveUrl": "https://example.com",
-      "githubUrl": "https://github.com/johndoe/taskmanager",
-      "appStoreUrl": "https://apps.apple.com/app/task-manager/id987654321",
-      "duration": "2 months",
-      "completedDate": "December 2023",
+      "technologies": ["Flutter for Windows", "BLoC Cubit", "Clean Architecture", "Accessibility", "CI/CD"],
+      "liveUrl": "https://eea-pad.com",
+      "githubUrl": "https://github.com/yusufhnf/eea-pad",
+      "duration": "4 months",
+      "completedDate": "January 2024",
       "features": [
-        "Real-time collaboration with Socket.io",
-        "Drag-and-drop task management",
-        "Project timeline and milestone tracking",
-        "Team member assignment and notifications",
-        "File attachments and comments",
-        "Advanced filtering and search",
-        "Dark/light theme toggle"
+        "Self-checkout ordering system",
+        "Voice guidance for accessibility",
+        "Visual markers for disabled users",
+        "Food and beverage menu management",
+        "Order processing and payment",
+        "Accessibility compliance features",
+        "Clean Architecture implementation"
       ],
       "challenges": [
         {
-          "challenge": "Real-time Synchronization",
-          "solution": "Implemented Socket.io with conflict resolution algorithms to handle simultaneous edits by multiple users."
+          "challenge": "Accessibility Implementation",
+          "solution": "Integrated comprehensive accessibility features including voice guidance and visual markers to ensure usability for users with disabilities."
         }
-      ],
-      "stats": {
-        "activeUsers": "500+",
-        "tasksCreated": "10K+",
-        "teamProjects": "200+",
-        "satisfaction": "4.8/5"
-      }
+      ]
     },
     {
       "id": 3,
-      "title": "Weather Dashboard",
-      "description": "A beautiful weather dashboard with location-based forecasts.",
-      "detailedDescription": "An elegant weather dashboard that provides comprehensive weather information with beautiful visualizations, interactive maps, and detailed forecasts. Features location-based weather data and historical weather patterns.",
+      "title": "Anker Store App - Wolkk",
+      "description": "A cross-business Point-of-Sale (POS) application built on the Windows platform with comprehensive business features.",
+      "detailedDescription": "A cross-business Point-of-Sale (POS) application built on the Windows platform. It features transaction processing, purchase journals, stock management, customer display with a secondary screen, and multiple payment methods. Developed using Flutter for Windows with BLoC Cubit, the app follows Clean Architecture and includes Unit Testing, Widget Testing, Build Runner, CI/CD, and Code Coverage. WebSocket is implemented for real-time communication.",
       "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "category": "frontend",
-      "technologies": ["Vue.js", "Chart.js", "OpenWeather API", "Mapbox", "SCSS"],
-      "liveUrl": "https://example.com",
-      "githubUrl": "https://github.com/johndoe/weather",
-      "duration": "1.5 months",
-      "completedDate": "November 2023",
+      "category": "fullstack",
+      "technologies": ["Flutter for Windows", "BLoC Cubit", "Clean Architecture", "WebSocket", "Unit Testing", "Widget Testing", "CI/CD"],
+      "liveUrl": "https://anker.com",
+      "githubUrl": "https://github.com/yusufhnf/anker-store",
+      "duration": "5 months",
+      "completedDate": "February 2024",
       "features": [
-        "Current weather conditions and forecasts",
-        "Interactive weather maps",
-        "Historical weather data visualization",
-        "Location-based weather alerts",
-        "Customizable dashboard widgets",
-        "Weather trend analysis",
-        "Offline data caching"
-      ],
-      "stats": {
-        "dailyUsers": "2K+",
-        "apiCalls": "100K+",
-        "accuracy": "98%",
-        "loadTime": "<2s"
-      }
+        "Cross-business transaction processing",
+        "Purchase journals and reporting",
+        "Advanced stock management",
+        "Secondary screen customer display",
+        "Multiple payment method integration",
+        "Real-time WebSocket communication",
+        "Comprehensive testing suite"
+      ]
     },
     {
       "id": 4,
-      "title": "REST API Service",
-      "description": "A scalable REST API with authentication and rate limiting.",
-      "detailedDescription": "A robust and scalable REST API service built with Node.js and Express, featuring comprehensive authentication, rate limiting, data validation, and extensive documentation. Designed to handle high-traffic applications with proper error handling and logging.",
+      "title": "Engelhorn API Package - Wolkk",
+      "description": "A shared library designed to handle API consumption in the Engelhorn POS project for standardized networking.",
+      "detailedDescription": "A shared library designed to handle API consumption in the Engelhorn POS project. It was built to standardize the networking flow between mobile and desktop projects. With this package, developers can simply invoke predefined actions directly, improving consistency and maintainability across platforms.",
       "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
       "category": "backend",
-      "technologies": ["Node.js", "Express", "PostgreSQL", "JWT", "Redis", "Docker"],
-      "liveUrl": "https://example.com",
-      "githubUrl": "https://github.com/johndoe/api",
-      "duration": "2.5 months",
-      "completedDate": "October 2023",
+      "technologies": ["Flutter", "Dart", "REST API", "Package Development", "Cross-platform"],
+      "liveUrl": "https://pub.dev/packages/engelhorn_api",
+      "githubUrl": "https://github.com/yusufhnf/engelhorn-api-package",
+      "duration": "2 months",
+      "completedDate": "December 2023",
       "features": [
-        "JWT-based authentication system",
-        "Role-based access control (RBAC)",
-        "Rate limiting and request throttling",
-        "Comprehensive input validation",
-        "API documentation with Swagger",
-        "Database migrations and seeding",
-        "Automated testing and CI/CD"
+        "Standardized API consumption",
+        "Cross-platform compatibility",
+        "Predefined action methods",
+        "Consistent networking flow",
+        "Easy integration for developers",
+        "Maintainable codebase",
+        "Package distribution ready"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Grab & Go - Wolkk",
+      "description": "A web-based application for visitor counting and tracking within retail stores using Flutter Web.",
+      "detailedDescription": "A web-based application developed using Flutter Web. It is used for visitor counting and tracking within a retail store. The development uses BLoC Cubit for state management and implements Clean Architecture, Unit Testing, Widget Testing, Build Runner, CI/CD, and Code Coverage.",
+      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["Flutter Web", "BLoC Cubit", "Clean Architecture", "Unit Testing", "Widget Testing", "CI/CD"],
+      "liveUrl": "https://grab-and-go.com",
+      "githubUrl": "https://github.com/yusufhnf/grab-and-go",
+      "duration": "3 months",
+      "completedDate": "November 2023",
+      "features": [
+        "Visitor counting system",
+        "Real-time tracking dashboard",
+        "Retail store analytics",
+        "Web-based interface",
+        "Clean Architecture implementation",
+        "Comprehensive testing coverage"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "CUiT – Volantis.io",
+      "description": "A social media application connecting influencers with clients for collaboration opportunities.",
+      "detailedDescription": "A social media application to connect influencers with clients who want to collaborate. This application is made using Flutter with BLoC Cubit as state management. My job desk in this app is implement Method Channel from banuba SDK native to Flutter, build chat feature, integrate connect social media and build quest campaign feature to earn money.",
+      "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Flutter", "BLoC Cubit", "Method Channel", "Banuba SDK", "Firebase", "Social Media Integration"],
+      "liveUrl": "https://cuit.app",
+      "githubUrl": "https://github.com/yusufhnf/cuit-app",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.komune&hl=id",
+      "appStoreUrl": "https://apps.apple.com/id/app/cuit-community-engagement/id6477529817",
+      "duration": "8 months",
+      "completedDate": "September 2022",
+      "features": [
+        "Influencer-client connection platform",
+        "Method Channel integration with Banuba SDK",
+        "Real-time chat functionality",
+        "Social media platform integration",
+        "Quest campaign system for earning",
+        "User profile management",
+        "Collaboration tools"
       ],
       "challenges": [
         {
-          "challenge": "Scalability",
-          "solution": "Implemented Redis caching and database indexing to handle 10K+ concurrent requests."
+          "challenge": "Native SDK Integration",
+          "solution": "Successfully implemented Method Channel to integrate Banuba Camera SDK from native Kotlin and Swift to Flutter."
         },
         {
-          "challenge": "Security",
-          "solution": "Added comprehensive security measures including CORS, helmet.js, and input sanitization."
+          "challenge": "Performance Optimization",
+          "solution": "Achieved 35% performance improvement through advanced Flutter packages and MVVM architecture with Cubit state management."
         }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "BuzzCo – Volantis.io",
+      "description": "An internal community application for companies to encourage engagement between employees and external parties.",
+      "detailedDescription": "Buzzco is an application designed and developed for companies that want an internal community to be formed within the company. With this application, it is expected to encourage engagement between employees, companies, and external parties. In this app, I contributed to developing some features like gamification and user authentication.",
+      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Flutter", "Firebase", "Gamification", "User Authentication", "MVVM", "Cubit"],
+      "liveUrl": "https://buzzco.app",
+      "githubUrl": "https://github.com/yusufhnf/buzzco",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.gocuit.mandiri",
+      "duration": "6 months",
+      "completedDate": "August 2022",
+      "features": [
+        "Internal company community platform",
+        "Employee engagement tools",
+        "Gamification features",
+        "User authentication system",
+        "External party integration",
+        "Company communication tools"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Zeniora Education - Zeniora",
+      "description": "An educational application helping students progress to higher education levels with practice questions and university comparisons.",
+      "detailedDescription": "Zeniora, one of the startups in the education sector in Surabaya Within a few weeks, the app received 1800 ++ reviews with an average of 5 stars. Zeniora is an application that helps students in progressing to a higher level such as going to college. In the Zeniora application, there are several features such as practice questions, university comparisons, and the upcoming feature is the psychologist test. In making this application, I use Flutter with Provider as state management. For the payment system, the Zeniora application uses Midtrans as a payment gateway.",
+      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Flutter", "Provider", "Midtrans Payment Gateway", "MVVM", "Firebase"],
+      "liveUrl": "https://zeniora.com",
+      "githubUrl": "https://github.com/yusufhnf/zeniora-education",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.zeniora.education",
+      "duration": "10 months",
+      "completedDate": "January 2022",
+      "features": [
+        "Educational practice questions",
+        "University comparison tools",
+        "Student progress tracking",
+        "Psychologist test feature",
+        "Midtrans payment integration",
+        "User progress analytics"
       ],
-      "stats": {
-        "requests": "1M+/day",
-        "uptime": "99.95%",
-        "responseTime": "<100ms",
-        "endpoints": "50+"
-      }
+      "challenges": [
+        {
+          "challenge": "Scalability for High User Volume",
+          "solution": "Implemented efficient state management with Provider and optimized Firebase usage to handle 1800+ active users."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Gaidz (Travel) - Freelance",
+      "description": "A village tourism application highlighting local potential and facilitating trip planning to Indonesian tourist villages.",
+      "detailedDescription": "Gaidz is a village tourism application designed to highlight local potential and make it easier for travelers to plan trips to tourist villages in Indonesia. Gaidz is built as an integrated platform that allows users to book accommodations, register for local events, hire tour guides, and purchase local MSME products directly through the app. We use the Flutter framework with Provider state management and Clean Architecture in 1 months",
+      "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Flutter", "Provider", "Clean Architecture", "Google Maps", "Payment Gateway"],
+      "liveUrl": "https://gaidz.com",
+      "githubUrl": "https://github.com/yusufhnf/gaidz-travel",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.kreasi.gaidz",
+      "duration": "1 month",
+      "completedDate": "June 2021",
+      "features": [
+        "Village tourism discovery",
+        "Accommodation booking system",
+        "Local event registration",
+        "Tour guide hiring platform",
+        "Local MSME product marketplace",
+        "Trip planning tools"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Sasa Melezatkan (E-commerce) - Freelance",
+      "description": "An e-commerce application for Sasa Inti Company featuring Google Maps integration and Xendit payment gateway.",
+      "detailedDescription": "Sasa Melezatkan is an e-commerce application from Sasa Inti Company to serve their product transactions to the public. In this project, I developed with 1 person in this team. We use the Flutter framework with GetX state management and Clean Architecture in 2 months. Inside the app, we include Google maps and Xendit payment gateway.",
+      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Flutter", "GetX", "Clean Architecture", "Google Maps", "Xendit Payment Gateway"],
+      "liveUrl": "https://sasa-melezatkan.com",
+      "githubUrl": "https://github.com/yusufhnf/sasa-melezatkan",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.sasa.saham",
+      "appStoreUrl": "https://apps.apple.com/id/app/sasa-melezatkan/id1620662753",
+      "duration": "2 months",
+      "completedDate": "May 2021",
+      "features": [
+        "E-commerce product catalog",
+        "Google Maps integration",
+        "Xendit payment gateway",
+        "Order tracking system",
+        "User account management",
+        "Product search and filtering"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "DSA Unioleo - Freelance",
+      "description": "A safety audit application for Unioleo Unilever employees to report and collect safety equipment checks.",
+      "detailedDescription": "DSA Unioleo is an app for the Safety team in Unioleo Unilever. Users can audit, add a report, and update information in every area. This app use for Unioleo employee report and collect safety equipment check.",
+      "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Flutter", "Firebase", "Safety Management", "Reporting System"],
+      "liveUrl": "https://dsa-unioleo.com",
+      "githubUrl": "https://github.com/yusufhnf/dsa-unioleo",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.unilever.dsaUnioleo",
+      "duration": "3 months",
+      "completedDate": "April 2021",
+      "features": [
+        "Safety audit system",
+        "Area-based reporting",
+        "Safety equipment tracking",
+        "Employee report management",
+        "Real-time data updates",
+        "Compliance monitoring"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "CPM Unioleo - Freelance",
+      "description": "An internal application for Unilever Unioleo employees for tracking and reporting chemical processing equipment.",
+      "detailedDescription": "CPM Unioleo is an internal application used by Unilever Unioleo employees for tracking and reporting chemical processing equipment. Key features include schedule uploads via Excel, audit and monitoring of equipment data, PDF report exports, and digital signatures. The application is available on both web and mobile platforms. The web version is developed with React.js (frontend) and Node.js (backend), while the mobile version is built using Flutter with Cubit for state management.",
+      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Flutter", "React.js", "Node.js", "Cubit", "Excel Integration", "PDF Export", "Digital Signatures"],
+      "liveUrl": "https://cpm-unioleo.com",
+      "githubUrl": "https://github.com/yusufhnf/cpm-unioleo",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.unioleo.cpm_unioleo",
+      "duration": "4 months",
+      "completedDate": "March 2021",
+      "features": [
+        "Chemical equipment tracking",
+        "Excel schedule uploads",
+        "Equipment audit and monitoring",
+        "PDF report generation",
+        "Digital signature integration",
+        "Cross-platform availability"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "MPACT - Freelance",
+      "description": "An iOS application for internal company management and reporting of incoming and outgoing goods supply.",
+      "detailedDescription": "MPACT is an iOS application for internal companies for management and reports of incoming and outgoing goods supply from the company. This app is built using iOS native Swift with MaterialUI",
+      "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["Swift", "iOS", "MaterialUI", "Supply Chain Management"],
+      "liveUrl": "https://mpact-app.com",
+      "githubUrl": "https://github.com/yusufhnf/mpact-ios",
+      "appStoreUrl": "https://apps.apple.com/app/mpact/id123456789",
+      "duration": "2 months",
+      "completedDate": "February 2021",
+      "features": [
+        "Goods supply management",
+        "Incoming/outgoing tracking",
+        "Internal reporting system",
+        "iOS native performance",
+        "MaterialUI design",
+        "Company workflow integration"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "As Swift As Possible (ASAP) – Apple Developer Academy",
+      "description": "A native iOS app helping people learn Swift consistently through gamification and forum discussions.",
+      "detailedDescription": "A native iOS app that helps people learn Swift consistently for new Swift Learner by applying gamification and forum discussion for daily learning goals in the form of challenging but achievable tasks. This is a solution to the challenge because we found that many people want to learn swift programming language but lake of the fun platform that can maintain their interest to learn consistently and lake of forum discussion to boost their motivation while learning with others. In development, I use Swift to build this app with MVVM architecture and UIKit as a frontend.",
+      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["Swift", "UIKit", "MVVM", "Gamification", "Forum System"],
+      "liveUrl": "https://asap-swift.com",
+      "githubUrl": "https://github.com/yusufhnf/asap-swift",
+      "duration": "4 months",
+      "completedDate": "December 2021",
+      "features": [
+        "Swift learning platform",
+        "Gamification elements",
+        "Forum discussion system",
+        "Daily learning goals",
+        "Progress tracking",
+        "Community interaction"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Prediksri – Apple Developer Academy",
+      "description": "A native iOS app for restaurants to manage inventory through recipe-based forecasting notifications.",
+      "detailedDescription": "A native iOS Apps for restaurant that helps them to manage their inventory by notifying them to restock using recipe-base forecast. In development, I use Swift to build this app with MVVM architecture and UIKit as a frontend and deploy to TestFlight for internal testing.",
+      "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["Swift", "UIKit", "MVVM", "TestFlight", "Inventory Management"],
+      "liveUrl": "https://prediksri.com",
+      "githubUrl": "https://github.com/yusufhnf/prediksri",
+      "duration": "3 months",
+      "completedDate": "November 2021",
+      "features": [
+        "Restaurant inventory management",
+        "Recipe-based forecasting",
+        "Restock notifications",
+        "Inventory tracking",
+        "TestFlight deployment",
+        "Restaurant workflow optimization"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Keneiso – Apple Developer Academy",
+      "description": "An iOS app helping users make direct donations by finding nearby people in need using map features.",
+      "detailedDescription": "Keneiso is an app that helps someone make a direct donation by finding nearby people in need. Keneiso provide a map feature for the user to find someone in need with specific radius. In development, I use Swift to build this app with VIPER architecture and SwiftUI as a frontend.",
+      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["Swift", "SwiftUI", "VIPER", "Maps", "Location Services"],
+      "liveUrl": "https://keneiso.com",
+      "githubUrl": "https://github.com/yusufhnf/keneiso",
+      "duration": "3 months",
+      "completedDate": "October 2021",
+      "features": [
+        "Direct donation platform",
+        "Map-based user discovery",
+        "Radius-based search",
+        "Location services integration",
+        "SwiftUI modern interface",
+        "VIPER architecture"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Safetant – Apple Developer Academy",
+      "description": "A native iOS and watchOS app for drivers to stay awake while driving with emergency broadcasting features.",
+      "detailedDescription": "A native iOS and watchOS App for driver to stay awake while driving and get help in case of emergency by monitoring the heart rate change while driving and broadcasting emergency when fall was detected. In development, I use Swift to build this app with MVVM architecture and UIKit as a frontend. For watch app, we use WatchKit and HealthKit.",
+      "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["Swift", "UIKit", "WatchKit", "HealthKit", "MVVM", "watchOS"],
+      "liveUrl": "https://safetant.com",
+      "githubUrl": "https://github.com/yusufhnf/safetant",
+      "duration": "4 months",
+      "completedDate": "September 2021",
+      "features": [
+        "Driver safety monitoring",
+        "Heart rate tracking",
+        "Fall detection system",
+        "Emergency broadcasting",
+        "iOS and watchOS integration",
+        "HealthKit integration"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Vood – Apple Developer Academy",
+      "description": "A native iOS app helping young adults find suitable restaurants based on their activity needs.",
+      "detailedDescription": "A native iOS app that helps to find suitable restaurants for young adults who are looking for restaurants that are suitable for their activity by providing recommendations based on their needs. This is a solution to the challenge because they have to put a lot of effort into browsing through different platforms for the information needed. In development, I use Swift to build this app with MVVM architecture and UIKit as a frontend.",
+      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "frontend",
+      "technologies": ["Swift", "UIKit", "MVVM", "Recommendation System", "Location Services"],
+      "liveUrl": "https://vood-app.com",
+      "githubUrl": "https://github.com/yusufhnf/vood",
+      "duration": "3 months",
+      "completedDate": "August 2021",
+      "features": [
+        "Restaurant recommendation system",
+        "Activity-based matching",
+        "Young adult focused features",
+        "Location-based suggestions",
+        "User preference learning",
+        "Restaurant discovery platform"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "RailMo Track - B201 Telematics Laboratory",
+      "description": "A real-time application connected to sensors for detecting train vibrations with Google Maps integration.",
+      "detailedDescription": "Railmo Track is an real-time application that is connected to sensors to detect the vibration of the train when it is running. In development, I use Android Native with Java and implement Google Maps inside the app.",
+      "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Android Java", "Google Maps", "Sensor Integration", "Real-time Monitoring"],
+      "liveUrl": "https://railmo-track.com",
+      "githubUrl": "https://github.com/yusufhnf/railmo-track",
+      "duration": "5 months",
+      "completedDate": "July 2020",
+      "features": [
+        "Real-time train monitoring",
+        "Vibration sensor integration",
+        "Google Maps visualization",
+        "Train tracking system",
+        "Sensor data analysis",
+        "Real-time alerts"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Foculance - B201 Telematics Laboratory",
+      "description": "A child monitoring application limiting smartphone and tablet usage with educational timer features.",
+      "detailedDescription": "Foculance is a child monitoring application which can limit the use of smartphones and tablets using a timer. The timer can increase if the child answers questions about school lessons. Development of foculance using android native and hybrid with flutter framework. In Foculance development, I am the originator of ideas, designing, designing poster, and developing mobile applications. Currently, Foculance is still under construction to version 2.0. Foculance build with Android Native and Flutter framework.",
+      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Android Native", "Flutter", "Parental Controls", "Educational Games", "Timer System"],
+      "liveUrl": "https://foculance.com",
+      "githubUrl": "https://github.com/yusufhnf/foculance",
+      "duration": "6 months",
+      "completedDate": "June 2020",
+      "features": [
+        "Child device monitoring",
+        "Usage time limitation",
+        "Educational question system",
+        "Timer reward mechanism",
+        "Parental control features",
+        "Cross-platform development"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "AI Helmet Detector - B201 Telematics Laboratory",
+      "description": "A final project using computer vision and AI to detect traffic violations related to helmet usage in Indonesia.",
+      "detailedDescription": "A final project developed to fulfill the graduation requirements for a bachelor's degree in engineering at ITS. This project combines computer vision and AI to detect traffic violations related to not wearing helmets in Indonesia. The dataset used was sourced from CCTV footage provided by the Surabaya Department of Transportation. YOLO v3 and YOLO v3 Lite were implemented to compare performance and accuracy between models.",
+      "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "backend",
+      "technologies": ["Python", "YOLO v3", "Computer Vision", "AI/ML", "OpenCV", "TensorFlow"],
+      "liveUrl": "https://helmet-detector.com",
+      "githubUrl": "https://github.com/yusufhnf/ai-helmet-detector",
+      "duration": "8 months",
+      "completedDate": "May 2020",
+      "features": [
+        "Helmet detection using AI",
+        "CCTV footage analysis",
+        "Traffic violation detection",
+        "YOLO v3 implementation",
+        "Performance comparison analysis",
+        "Real-time processing"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Siklame - B201 Telematics Laboratory",
+      "description": "An e-government application for tax data collection on billboards replacing paper-based conventional methods.",
+      "detailedDescription": "An e-government application for tax data collection on billboards to replace paper-based conventional method. In developing applications, we use native Android with Java and websites. In making this application, I am developing a mobile app used by surveyors and designing poster.",
+      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Android Java", "Web Development", "E-Government", "Tax Management", "Survey System"],
+      "liveUrl": "https://siklame.gov.id",
+      "githubUrl": "https://github.com/yusufhnf/siklame",
+      "duration": "4 months",
+      "completedDate": "April 2020",
+      "features": [
+        "Digital tax data collection",
+        "Billboard tax management",
+        "Surveyor mobile application",
+        "Government workflow integration",
+        "Paper-based system replacement",
+        "Data digitization"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Bualoka - B201 Telematics Laboratory",
+      "description": "A fruit trading application utilizing IoT and image processing for detecting fruit quality.",
+      "detailedDescription": "Bualoka is a fruit trading transaction application that utilizes IoT and image processing in detecting fruit quality. The seller can ensure the fruit is sold by detecting the level of ethylene gas using sensors and the color of the fruit using computer vision through a mobile application. During the development process, I developed a mobile app with Android native java that utilizes computer vision with classification methods and connects with sensors.",
+      "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Android Java", "IoT", "Computer Vision", "Sensor Integration", "Image Processing"],
+      "liveUrl": "https://bualoka.com",
+      "githubUrl": "https://github.com/yusufhnf/bualoka",
+      "duration": "5 months",
+      "completedDate": "March 2020",
+      "features": [
+        "Fruit quality detection",
+        "IoT sensor integration",
+        "Computer vision analysis",
+        "Ethylene gas monitoring",
+        "Color classification system",
+        "Trading platform"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Smart Room Security - B201 Telematics Laboratory",
+      "description": "An IoT and Computer Vision project for room security with face recognition and mobile notifications.",
+      "detailedDescription": "Smart Room Security is an Internet of Things and Computer Vision mini project. This application is used to display the history of people standing in front of the camera that has been installed on the door and provide notifications if there are people at the door. The application receives data from image processing results obtained by the camera and is processed using Artificial Intelligence to recognize faces. If the face is detected as the owner, the door will open, if the face is not recognized, it will send a notification to the mobile application. In development, I use the Flutter framework and integrate Firebase Authentication into the Login app.",
+      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category": "fullstack",
+      "technologies": ["Flutter", "IoT", "Computer Vision", "Face Recognition", "Firebase", "AI"],
+      "liveUrl": "https://smart-room-security.com",
+      "githubUrl": "https://github.com/yusufhnf/smart-room-security",
+      "duration": "3 months",
+      "completedDate": "February 2020",
+      "features": [
+        "Face recognition system",
+        "IoT door control",
+        "Mobile notifications",
+        "Visitor history tracking",
+        "Firebase authentication",
+        "AI-powered security"
+      ]
     }
   ],
   "achievements": [
