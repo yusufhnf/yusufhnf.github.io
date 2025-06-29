@@ -48,8 +48,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, data }) => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'glass-effect shadow-dark-md' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+        scrolled ? 'nav-glass shadow-dark-md' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -58,25 +58,26 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <motion.div
-            className="text-2xl font-bold gradient-text"
+            className="text-2xl font-bold gradient-text glow-interactive"
             whileHover={{ scale: 1.05 }}
+            data-text={data.personal.avatar}
           >
             {data.personal.avatar}
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-2">
               {navItems.map((item) => (
                 <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-2 rounded-modern text-sm font-medium transition-all micro-interaction ${
+                  className={`px-4 py-2 rounded-modern text-sm font-medium transition-all micro-interaction ${
                     activeSection === item.id
-                      ? 'text-blue-500 bg-interactive-active'
-                      : 'text-text-muted hover:text-text-primary hover:bg-interactive-hover'
+                      ? 'btn-liquid text-white'
+                      : 'liquid-glass text-text-secondary hover:text-text-primary'
                   }`}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {item.label}
@@ -88,8 +89,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, data }) => {
           {/* Resume Download Button */}
           <motion.button
             onClick={handleDownloadResume}
-            className="hidden lg:flex items-center space-x-2 btn-primary px-4 py-2 rounded-modern text-sm font-medium micro-interaction"
-            whileHover={{ scale: 1.05 }}
+            className="hidden lg:flex items-center space-x-2 btn-liquid px-6 py-3 rounded-modern text-sm font-medium micro-interaction glow-interactive"
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
             <Download size={16} />
@@ -100,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, data }) => {
           <div className="lg:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-text-muted hover:text-text-primary p-2 rounded-modern hover:bg-interactive-hover transition-colors micro-interaction"
+              className="liquid-glass text-text-muted hover:text-text-primary p-3 rounded-modern micro-interaction"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -116,31 +117,31 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, data }) => {
         animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 glass-effect border-t border-primary-border">
+        <div className="px-2 pt-2 pb-3 space-y-2 liquid-glass border-t border-primary-border">
           {navItems.map((item) => (
             <motion.button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`block px-3 py-2 rounded-modern text-base font-medium w-full text-left transition-all micro-interaction ${
+              className={`block px-4 py-3 rounded-modern text-base font-medium w-full text-left transition-all micro-interaction ${
                 activeSection === item.id
-                  ? 'text-blue-500 bg-interactive-active'
-                  : 'text-text-muted hover:text-text-primary hover:bg-interactive-hover'
+                  ? 'btn-liquid text-white'
+                  : 'glass-effect text-text-muted hover:text-text-primary'
               }`}
-              whileHover={{ x: 10 }}
+              whileHover={{ x: 10, scale: 1.02 }}
             >
               {item.label}
             </motion.button>
           ))}
           <motion.button
             onClick={handleDownloadResume}
-            className="flex items-center space-x-2 btn-primary px-3 py-2 rounded-modern text-base font-medium w-full micro-interaction"
-            whileHover={{ x: 10 }}
+            className="flex items-center space-x-2 btn-liquid px-4 py-3 rounded-modern text-base font-medium w-full micro-interaction"
+            whileHover={{ x: 10, scale: 1.02 }}
           >
             <Download size={16} />
             <span>Download Resume</span>
           </motion.button>
         </div>
-      </motion.div>
+      </div>
     </motion.nav>
   );
 };

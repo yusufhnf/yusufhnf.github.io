@@ -23,7 +23,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text">About Me</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text" data-text="About Me">About Me</h2>
           <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto">
             Passionate about creating digital experiences that make a difference
           </p>
@@ -64,11 +64,11 @@ const About: React.FC<AboutProps> = ({ data }) => {
               return (
                 <motion.div
                   key={index}
-                  className="glass-effect rounded-xl p-4 sm:p-6 text-center card-hover"
+                  className="glass-card rounded-xl p-4 sm:p-6 text-center card-hover glow-interactive"
                   whileHover={{ scale: 1.05, y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-blue rounded-lg mb-4">
+                  <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 btn-liquid rounded-lg mb-4">
                     <IconComponent size={20} className="text-white" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold gradient-text mb-2">{achievement.title}</h3>
@@ -91,11 +91,11 @@ const About: React.FC<AboutProps> = ({ data }) => {
             {data.values.map((value: any, index: number) => (
               <motion.div
                 key={index}
-                className="glass-effect rounded-xl p-4 sm:p-6 card-hover"
-                whileHover={{ scale: 1.02 }}
+                className="glass-card rounded-xl p-4 sm:p-6 card-hover glow-interactive"
+                whileHover={{ scale: 1.02, y: -3 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="text-lg sm:text-xl font-semibold mb-3 text-blue-500">{value.title}</h4>
+                <h4 className="text-lg sm:text-xl font-semibold mb-3 text-blue-400">{value.title}</h4>
                 <p className="text-sm sm:text-base text-text-secondary">{value.description}</p>
               </motion.div>
             ))}

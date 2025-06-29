@@ -28,9 +28,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
           transition={{ duration: 0.3 }}
           onClick={handleBackdropClick}
         >
-          {/* Backdrop */}
+          {/* Enhanced Backdrop */}
           <motion.div
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -38,7 +38,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
 
           {/* Modal Content */}
           <motion.div
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-effect rounded-xl shadow-dark-xl"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-liquid shadow-dark-xl"
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             {/* Close Button */}
             <motion.button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+              className="absolute top-4 right-4 z-10 p-2 liquid-glass rounded-full transition-colors glow-interactive"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Close modal"
@@ -66,7 +66,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               
               {/* Project Category Badge */}
               <div className="absolute top-4 left-4">
-                <span className="bg-gradient-to-r from-blue-500/90 to-blue-600/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-white capitalize">
+                <span className="liquid-glass px-3 py-1 rounded-full text-sm font-medium text-white capitalize">
                   {project.category}
                 </span>
               </div>
@@ -96,8 +96,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 px-4 py-2 rounded-lg font-medium text-white transition-all"
-                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center space-x-2 btn-liquid px-4 py-2 rounded-lg font-medium text-white transition-all glow-interactive"
+                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <ExternalLink size={16} />
@@ -107,8 +107,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 glass-effect border border-gray-600 hover:border-blue-500 px-4 py-2 rounded-lg font-medium text-white transition-all"
-                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center space-x-2 btn-liquid-secondary px-4 py-2 rounded-lg font-medium text-white transition-all"
+                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <Github size={16} />
@@ -147,10 +147,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   {project.technologies.map((tech: string, index: number) => (
                     <motion.span
                       key={index}
-                      className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 border border-blue-500/30 px-3 py-1 rounded-full text-sm text-blue-400"
+                      className="liquid-glass px-3 py-1 rounded-full text-sm text-blue-400 glow-interactive"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       {tech}
                     </motion.span>
@@ -164,7 +165,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   <h3 className="text-lg font-semibold text-white mb-3">Challenges & Solutions</h3>
                   <div className="space-y-3">
                     {project.challenges.map((challenge: any, index: number) => (
-                      <div key={index} className="glass-effect rounded-lg p-4">
+                      <div key={index} className="glass-card rounded-lg p-4">
                         <h4 className="font-medium text-blue-400 mb-2">{challenge.challenge}</h4>
                         <p className="text-gray-300 text-sm">{challenge.solution}</p>
                       </div>
@@ -181,10 +182,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     {Object.entries(project.stats).map(([key, value], index) => (
                       <motion.div
                         key={key}
-                        className="text-center glass-effect rounded-lg p-3"
+                        className="text-center glass-card rounded-lg p-3 glow-interactive"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
+                        whileHover={{ scale: 1.05 }}
                       >
                         <div className="text-xl font-bold text-blue-400">{value as string}</div>
                         <div className="text-xs text-gray-400 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>

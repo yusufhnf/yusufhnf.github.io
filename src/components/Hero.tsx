@@ -16,13 +16,13 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-primary-black">
-      {/* Background Elements */}
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-blue-500/40 rounded-full"
+            className="absolute w-1 h-1 bg-blue-400/40 rounded-full floating-element"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -30,7 +30,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             animate={{
               y: [0, -30, 0],
               opacity: [0.4, 1, 0.4],
-              scale: [1, 1.2, 1],
+              scale: [1, 1.5, 1],
             }}
             transition={{
               duration: 4 + Math.random() * 2,
@@ -55,8 +55,8 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full bg-gradient-blue p-1">
-              <div className="w-full h-full rounded-full bg-primary-black flex items-center justify-center">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full liquid-glass p-1 glow-interactive">
+              <div className="w-full h-full rounded-full glass-effect flex items-center justify-center">
                 <span className="text-2xl sm:text-4xl font-bold gradient-text">{data.personal.avatar}</span>
               </div>
             </div>
@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <span className="gradient-text">{data.personal.name}</span>
+            <span className="gradient-text" data-text={data.personal.name}>{data.personal.name}</span>
           </motion.h1>
 
           <motion.h2
@@ -97,16 +97,16 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
           >
             <motion.button
               onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary px-8 py-4 rounded-modern font-semibold text-base micro-interaction"
-              whileHover={{ scale: 1.05 }}
+              className="btn-liquid px-8 py-4 rounded-modern font-semibold text-base micro-interaction glow-interactive"
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               View My Work
             </motion.button>
             <motion.button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-secondary px-8 py-4 rounded-modern font-semibold text-base micro-interaction"
-              whileHover={{ scale: 1.05 }}
+              className="btn-liquid-secondary px-8 py-4 rounded-modern font-semibold text-base micro-interaction"
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               Get In Touch
@@ -121,11 +121,13 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <FlutterMobileDevIllustration />
+          <div className="glow-interactive">
+            <FlutterMobileDevIllustration />
+          </div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Enhanced Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
@@ -133,7 +135,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
       >
         <button
           onClick={scrollToAbout}
-          className="text-text-muted hover:text-text-primary transition-colors micro-interaction"
+          className="liquid-glass p-3 rounded-full text-text-muted hover:text-text-primary transition-colors micro-interaction glow-interactive"
           aria-label="Scroll to about section"
         >
           <ChevronDown size={32} />

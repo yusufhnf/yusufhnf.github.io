@@ -44,7 +44,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text">Portfolio</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text" data-text="Portfolio">Portfolio</h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
             A showcase of my recent work and projects
           </p>
@@ -62,12 +62,12 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
             <motion.button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base ${
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base micro-interaction ${
                 activeFilter === filter.id
-                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
-                  : 'glass-effect text-gray-300 hover:text-white'
+                  ? 'btn-liquid text-white glow-interactive'
+                  : 'liquid-glass text-gray-300 hover:text-white'
               }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               {filter.label}
@@ -83,7 +83,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           {filteredProjects.map((project: any, index: number) => (
             <motion.div
               key={project.id}
-              className="glass-effect rounded-xl overflow-hidden group card-hover cursor-pointer"
+              className="glass-card rounded-xl overflow-hidden group card-hover cursor-pointer glow-interactive"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -104,7 +104,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                         e.stopPropagation();
                         window.open(project.liveUrl, '_blank');
                       }}
-                      className="bg-white/20 backdrop-blur-sm p-2 rounded-full hover:bg-white/30 transition-colors"
+                      className="liquid-glass p-2 rounded-full hover:bg-white/30 transition-colors glow-interactive"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       aria-label="View live project"
@@ -116,7 +116,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                         e.stopPropagation();
                         window.open(project.githubUrl, '_blank');
                       }}
-                      className="bg-white/20 backdrop-blur-sm p-2 rounded-full hover:bg-white/30 transition-colors"
+                      className="liquid-glass p-2 rounded-full hover:bg-white/30 transition-colors glow-interactive"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       aria-label="View GitHub repository"
@@ -128,7 +128,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                 
                 {/* Click to view indicator */}
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="bg-blue-500/90 backdrop-blur-sm px-2 py-1 rounded text-xs text-white">
+                  <span className="liquid-glass px-2 py-1 rounded text-xs text-white">
                     Click to view details
                   </span>
                 </div>
@@ -146,7 +146,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                   {project.technologies.slice(0, 3).map((tech: string, techIndex: number) => (
                     <span
                       key={techIndex}
-                      className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 border border-blue-500/30 px-2 sm:px-3 py-1 rounded-full text-xs text-blue-400"
+                      className="liquid-glass px-2 sm:px-3 py-1 rounded-full text-xs text-blue-400"
                     >
                       {tech}
                     </span>

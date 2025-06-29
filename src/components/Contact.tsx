@@ -68,11 +68,11 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
   const getSocialButtonStyle = (platform: string) => {
     switch (platform.toLowerCase()) {
       case 'tiktok':
-        return 'bg-black hover:bg-gray-800 text-white';
+        return 'bg-black hover:bg-gray-800 text-white glow-interactive';
       case 'instagram':
-        return 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white';
+        return 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white glow-interactive';
       default:
-        return 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white';
+        return 'btn-liquid glow-interactive';
     }
   };
 
@@ -86,7 +86,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text">Get In Touch</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text" data-text="Get In Touch">Get In Touch</h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
             Let's discuss your next project or just say hello
           </p>
@@ -107,11 +107,11 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                 <motion.a
                   key={index}
                   href={info.href}
-                  className="flex items-center space-x-4 glass-effect rounded-lg p-4 hover:bg-white/10 transition-colors group card-hover"
+                  className="flex items-center space-x-4 glass-card rounded-lg p-4 hover:bg-white/10 transition-colors group card-hover glow-interactive"
                   whileHover={{ scale: 1.02, x: 10 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-3 rounded-lg group-hover:scale-110 transition-transform">
+                  <div className="btn-liquid p-3 rounded-lg group-hover:scale-110 transition-transform">
                     <info.icon size={20} className="text-white" />
                   </div>
                   <div>
@@ -136,7 +136,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`p-3 rounded-lg transition-all ${buttonStyle}`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileHover={{ scale: 1.1, rotate: 5, y: -2 }}
                       whileTap={{ scale: 0.9 }}
                       aria-label={social.platform}
                       title={social.platform}
@@ -156,7 +156,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="glass-effect rounded-xl p-6 sm:p-8">
+            <form onSubmit={handleSubmit} className="glass-card rounded-xl p-6 sm:p-8">
               <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -169,7 +169,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 text-sm sm:text-base"
+                    className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </div>
@@ -184,7 +184,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 text-sm sm:text-base"
+                    className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 text-sm sm:text-base"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -201,7 +201,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-dark-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 text-sm sm:text-base"
+                  className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 text-sm sm:text-base"
                   placeholder="What's this about?"
                 />
               </div>
@@ -217,7 +217,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-dark-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 resize-none text-sm sm:text-base"
+                  className="w-full px-4 py-3 input-liquid rounded-lg text-white placeholder-gray-400 resize-none text-sm sm:text-base"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -225,8 +225,8 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed px-6 sm:px-8 py-3 rounded-lg font-semibold text-white flex items-center justify-center space-x-2 transition-all text-sm sm:text-base"
-                whileHover={{ scale: 1.02 }}
+                className="w-full btn-liquid disabled:opacity-50 disabled:cursor-not-allowed px-6 sm:px-8 py-3 rounded-lg font-semibold text-white flex items-center justify-center space-x-2 transition-all text-sm sm:text-base glow-interactive"
+                whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {isSubmitting ? (
