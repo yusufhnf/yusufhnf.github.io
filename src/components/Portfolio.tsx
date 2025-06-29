@@ -229,10 +229,6 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
             <h3 className="text-xl sm:text-2xl font-bold mb-4 gradient-text">
               Portfolio Highlights
             </h3>
-            <p className="text-base sm:text-lg text-gray-300 mb-6 max-w-3xl mx-auto">
-              From enterprise POS systems to innovative mobile applications, my portfolio showcases 
-              a diverse range of projects built with cutting-edge technologies and best practices.
-            </p>
             
             {/* Portfolio Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
