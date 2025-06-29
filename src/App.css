@@ -188,7 +188,7 @@ body::after {
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-/* Enhanced Gradient Text */
+/* Enhanced Gradient Text with Larger Size */
 .gradient-text {
   background: linear-gradient(135deg, 
     #60A5FA 0%, 
@@ -201,6 +201,32 @@ body::after {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
+  font-size: 4.5rem; /* Increased from default responsive size */
+  line-height: 1.1;
+  font-weight: 900; /* Made bolder */
+  letter-spacing: -0.02em; /* Tighter letter spacing for better appearance */
+}
+
+/* Responsive adjustments for the larger gradient text */
+@media (max-width: 640px) {
+  .gradient-text {
+    font-size: 2.5rem; /* Increased from 1.5rem */
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .gradient-text {
+    font-size: 3.5rem; /* Increased from 1.875rem */
+    line-height: 1.15;
+  }
+}
+
+@media (min-width: 769px) {
+  .gradient-text {
+    font-size: 5rem; /* Increased from 3.5rem */
+    line-height: 1.1;
+  }
 }
 
 .gradient-text::after {
