@@ -30,6 +30,56 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Enhanced Background Animation - Restored */}
+      <div className="absolute inset-0">
+        {/* Floating particles */}
+        {[...Array(25)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-blue-400/30 rounded-full floating-element"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -40, 0],
+              opacity: [0.3, 0.8, 0.3],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 6 + Math.random() * 3,
+              repeat: Infinity,
+              delay: Math.random() * 3,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+        
+        {/* Larger floating elements */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`large-${i}`}
+            className="absolute w-2 h-2 bg-blue-500/20 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -60, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [1, 2, 1],
+            }}
+            transition={{
+              duration: 8 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 4,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+
       <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Left side - Text content */}
         <motion.div
