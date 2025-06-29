@@ -17,7 +17,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     }
   };
 
-  const validateUrl = (url: string): boolean => {
+  // Helper function to validate URLs
+  const isValidUrl = (url: string | null | undefined): boolean => {
+    if (!url || url.trim() === '') return false;
     try {
       new URL(url);
       return true;
@@ -27,12 +29,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
   };
 
   const handleLinkClick = (url: string, fallbackMessage: string) => {
-    if (validateUrl(url)) {
+    if (isValidUrl(url)) {
       window.open(url, '_blank', 'noopener,noreferrer');
     } else {
       alert(fallbackMessage);
     }
   };
+
+  // Check which URLs are valid for this project
+  const hasLiveUrl = isValidUrl(project.liveUrl);
+  const hasGithubUrl = isValidUrl(project.githubUrl);
+  const hasPlayStoreUrl = isValidUrl(project.playStoreUrl);
+  const hasAppStoreUrl = isValidUrl(project.appStoreUrl);
 
   return (
     <AnimatePresence>
@@ -113,30 +121,36 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   </div>
                 </div>
 
-                {/* Enhanced Action Buttons with App Store Links */}
+                {/* Enhanced Action Buttons - Only show valid URLs */}
                 <div className="flex flex-wrap gap-3">
-                  <motion.button
-                    onClick={() => handleLinkClick(project.liveUrl, 'Live demo is currently unavailable')}
-                    className="inline-flex items-center space-x-2 btn-liquid px-4 py-2 rounded-lg font-medium text-white transition-all glow-interactive"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ExternalLink size={16} />
-                    <span>Live Demo</span>
-                  </motion.button>
+                  {/* Live Demo Button - only show if URL is valid */}
+                  {hasLiveUrl && (
+                    <motion.button
+                      onClick={() => handleLinkClick(project.liveUrl, 'Live demo is currently unavailable')}
+                      className="inline-flex items-center space-x-2 btn-liquid px-4 py-2 rounded-lg font-medium text-white transition-all glow-interactive"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16} />
+                      <span>Live Demo</span>
+                    </motion.button>
+                  )}
                   
-                  <motion.button
-                    onClick={() => handleLinkClick(project.githubUrl, 'Source code is currently private')}
-                    className="inline-flex items-center space-x-2 btn-liquid-secondary px-4 py-2 rounded-lg font-medium text-white transition-all"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Github size={16} />
-                    <span>Source Code</span>
-                  </motion.button>
+                  {/* GitHub Button - only show if URL is valid */}
+                  {hasGithubUrl && (
+                    <motion.button
+                      onClick={() => handleLinkClick(project.githubUrl, 'Source code is currently private')}
+                      className="inline-flex items-center space-x-2 btn-liquid-secondary px-4 py-2 rounded-lg font-medium text-white transition-all"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={16} />
+                      <span>Source Code</span>
+                    </motion.button>
+                  )}
 
-                  {/* App Store Links - Only show if URLs are provided */}
-                  {project.playStoreUrl && (
+                  {/* Play Store Button - only show if URL is valid */}
+                  {hasPlayStoreUrl && (
                     <motion.button
                       onClick={() => handleLinkClick(project.playStoreUrl, 'Play Store link is currently unavailable')}
                       className="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-medium text-white transition-all glow-interactive"
@@ -151,7 +165,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     </motion.button>
                   )}
 
-                  {project.appStoreUrl && (
+                  {/* App Store Button - only show if URL is valid */}
+                  {hasAppStoreUrl && (
                     <motion.button
                       onClick={() => handleLinkClick(project.appStoreUrl, 'App Store link is currently unavailable')}
                       className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium text-white transition-all glow-interactive"
@@ -166,6 +181,15 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     </motion.button>
                   )}
                 </div>
+
+                {/* Show message if no valid URLs are available */}
+                {!hasLiveUrl && !hasGithubUrl && !hasPlayStoreUrl && !hasAppStoreUrl && (
+                  <div className="mt-4 p-3 bg-gray-800/50 rounded-lg border border-gray-700">
+                    <p className="text-sm text-gray-400">
+                      <span className="text-yellow-400">ℹ️</span> Project links are currently private or unavailable for public viewing.
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Description */}

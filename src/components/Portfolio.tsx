@@ -44,6 +44,17 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     navigate('/projects');
   };
 
+  // Helper function to check if URL is valid and not empty
+  const isValidUrl = (url: string | null | undefined): boolean => {
+    if (!url || url.trim() === '') return false;
+    try {
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   // Portfolio statistics data
   const portfolioStats = [
     {
@@ -118,86 +129,104 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           layout
         >
-          {displayedProjects.map((project: any, index: number) => (
-            <motion.div
-              key={project.id}
-              className="glass-card rounded-xl overflow-hidden group card-hover cursor-pointer glow-interactive"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              layout
-              onClick={() => handleProjectClick(project)}
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                  <div className="flex space-x-3">
-                    <motion.button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(project.liveUrl, '_blank');
-                      }}
-                      className="liquid-glass p-2 rounded-full hover:bg-white/30 transition-colors glow-interactive"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      aria-label="View live project"
-                    >
-                      <ExternalLink size={20} />
-                    </motion.button>
-                    <motion.button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(project.githubUrl, '_blank');
-                      }}
-                      className="liquid-glass p-2 rounded-full hover:bg-white/30 transition-colors glow-interactive"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      aria-label="View GitHub repository"
-                    >
-                      <Github size={20} />
-                    </motion.button>
+          {displayedProjects.map((project: any, index: number) => {
+            // Check which URLs are valid for this project
+            const hasLiveUrl = isValidUrl(project.liveUrl);
+            const hasGithubUrl = isValidUrl(project.githubUrl);
+            const hasAnyValidUrl = hasLiveUrl || hasGithubUrl;
+
+            return (
+              <motion.div
+                key={project.id}
+                className="glass-card rounded-xl overflow-hidden group card-hover cursor-pointer glow-interactive"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                layout
+                onClick={() => handleProjectClick(project)}
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  
+                  {/* Only show overlay with buttons if there are valid URLs */}
+                  {hasAnyValidUrl && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                      <div className="flex space-x-3">
+                        {/* Live URL Button - only show if valid */}
+                        {hasLiveUrl && (
+                          <motion.button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.liveUrl, '_blank');
+                            }}
+                            className="liquid-glass p-2 rounded-full hover:bg-white/30 transition-colors glow-interactive"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            aria-label="View live project"
+                          >
+                            <ExternalLink size={20} />
+                          </motion.button>
+                        )}
+                        
+                        {/* GitHub URL Button - only show if valid */}
+                        {hasGithubUrl && (
+                          <motion.button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.githubUrl, '_blank');
+                            }}
+                            className="liquid-glass p-2 rounded-full hover:bg-white/30 transition-colors glow-interactive"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            aria-label="View GitHub repository"
+                          >
+                            <Github size={20} />
+                          </motion.button>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Click to view indicator */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="liquid-glass px-2 py-1 rounded text-xs text-white">
+                      Click to view details
+                    </span>
                   </div>
                 </div>
-                
-                {/* Click to view indicator */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="liquid-glass px-2 py-1 rounded text-xs text-white">
-                    Click to view details
-                  </span>
-                </div>
-              </div>
 
-              <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-300 mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 3).map((tech: string, techIndex: number) => (
-                    <span
-                      key={techIndex}
-                      className="liquid-glass px-2 sm:px-3 py-1 rounded-full text-xs text-blue-400"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="text-xs text-gray-400 px-2 py-1">
-                      +{project.technologies.length - 3} more
-                    </span>
-                  )}
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-300 mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 3).map((tech: string, techIndex: number) => (
+                      <span
+                        key={techIndex}
+                        className="liquid-glass px-2 sm:px-3 py-1 rounded-full text-xs text-blue-400"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="text-xs text-gray-400 px-2 py-1">
+                        +{project.technologies.length - 3} more
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* Enhanced View All Projects Button */}
