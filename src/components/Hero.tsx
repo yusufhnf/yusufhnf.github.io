@@ -15,27 +15,60 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
     }
   };
 
+  const scrollToProjects = () => {
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Enhanced Background Elements */}
+      {/* Enhanced Background Animation */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {/* Floating particles */}
+        {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-blue-400/40 rounded-full floating-element"
+            className="absolute w-1 h-1 bg-blue-400/30 rounded-full floating-element"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -30, 0],
-              opacity: [0.4, 1, 0.4],
+              y: [0, -40, 0],
+              opacity: [0.3, 0.8, 0.3],
               scale: [1, 1.5, 1],
             }}
             transition={{
-              duration: 4 + Math.random() * 2,
+              duration: 6 + Math.random() * 3,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: Math.random() * 3,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+        
+        {/* Larger floating elements */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`large-${i}`}
+            className="absolute w-2 h-2 bg-blue-500/20 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -60, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [1, 2, 1],
+            }}
+            transition={{
+              duration: 8 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 4,
+              ease: "easeInOut"
             }}
           />
         ))}
@@ -62,8 +95,10 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             </div>
           </motion.div>
 
+          {/* Name with enhanced styling */}
           <motion.h1
-            className="text-responsive-6xl font-bold mb-6 text-primary"
+            className="text-6xl font-bold mb-6 text-primary leading-tight"
+            style={{ fontSize: '3.5rem', fontWeight: 700 }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -71,8 +106,9 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             <span className="gradient-text" data-text={data.personal.name}>{data.personal.name}</span>
           </motion.h1>
 
+          {/* Professional title */}
           <motion.h2
-            className="text-responsive-4xl text-secondary mb-6"
+            className="text-2xl sm:text-3xl text-secondary mb-6 font-medium"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -80,8 +116,9 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             {data.personal.title}
           </motion.h2>
 
+          {/* Tagline */}
           <motion.p
-            className="text-responsive-xl text-muted mb-8 max-w-2xl mx-auto lg:mx-0"
+            className="text-lg sm:text-xl text-muted mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -89,6 +126,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             {data.personal.tagline}
           </motion.p>
 
+          {/* Call-to-action buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
             initial={{ opacity: 0, y: 30 }}
@@ -96,12 +134,12 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             transition={{ duration: 0.8, delay: 1 }}
           >
             <motion.button
-              onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={scrollToProjects}
               className="btn-liquid px-8 py-4 rounded-modern font-semibold text-base micro-interaction glow-interactive"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              View My Work
+              View My Projects
             </motion.button>
             <motion.button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
