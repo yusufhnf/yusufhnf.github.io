@@ -63,7 +63,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
           </motion.div>
 
           <motion.h1
-            className="text-responsive-4xl font-bold mb-6 text-primary"
+            className="text-responsive-6xl font-bold mb-6 text-primary"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
