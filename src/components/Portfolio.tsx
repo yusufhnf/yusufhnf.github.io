@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight, Code, Layers, Smartphone, Calendar, MapPin } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Code, Layers, Smartphone, Calendar } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ProjectModal from './ProjectModal';
 
@@ -113,7 +113,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           ))}
         </motion.div>
 
-        {/* Projects Grid - Experience-style cards */}
+        {/* Projects Grid */}
         <motion.div
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           layout
@@ -121,115 +121,78 @@ const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           {displayedProjects.map((project: any, index: number) => (
             <motion.div
               key={project.id}
-              className="glass-effect rounded-xl p-4 sm:p-6 card-hover cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="glass-card rounded-xl overflow-hidden group card-hover cursor-pointer glow-interactive"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
               layout
               onClick={() => handleProjectClick(project)}
             >
-              <div className="flex items-start space-x-4">
-                {/* Project Icon/Image */}
-                <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-3 rounded-lg flex-shrink-0">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">
-                      {project.title.charAt(0)}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="flex-1">
-                  {/* Project Header */}
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 border border-blue-500/30 text-blue-400 px-3 py-1 rounded-full text-xs sm:text-sm font-medium capitalize">
-                      {project.category}
-                    </span>
-                    {project.duration && (
-                      <div className="flex items-center text-gray-400 text-xs sm:text-sm">
-                        <Calendar size={14} className="mr-1" />
-                        {project.duration}
-                      </div>
-                    )}
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-300 mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {project.technologies.slice(0, 3).map((tech: string, techIndex: number) => (
-                      <span
-                        key={techIndex}
-                        className="liquid-glass px-2 py-1 rounded-full text-xs text-blue-400"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="text-xs text-gray-400 px-2 py-1">
-                        +{project.technologies.length - 3} more
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Action Links */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                   <div className="flex space-x-3">
                     <motion.button
                       onClick={(e) => {
                         e.stopPropagation();
                         window.open(project.liveUrl, '_blank');
                       }}
-                      className="inline-flex items-center space-x-1 text-blue-400 hover:text-blue-300 text-sm transition-colors"
-                      whileHover={{ x: 5 }}
+                      className="liquid-glass p-2 rounded-full hover:bg-white/30 transition-colors glow-interactive"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      aria-label="View live project"
                     >
-                      <ExternalLink size={14} />
-                      <span>Live Demo</span>
+                      <ExternalLink size={20} />
                     </motion.button>
                     <motion.button
                       onClick={(e) => {
                         e.stopPropagation();
                         window.open(project.githubUrl, '_blank');
                       }}
-                      className="inline-flex items-center space-x-1 text-gray-400 hover:text-gray-300 text-sm transition-colors"
-                      whileHover={{ x: 5 }}
+                      className="liquid-glass p-2 rounded-full hover:bg-white/30 transition-colors glow-interactive"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      aria-label="View GitHub repository"
                     >
-                      <Github size={14} />
-                      <span>Code</span>
+                      <Github size={20} />
                     </motion.button>
                   </div>
+                </div>
+                
+                {/* Click to view indicator */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="liquid-glass px-2 py-1 rounded text-xs text-white">
+                    Click to view details
+                  </span>
+                </div>
+              </div>
 
-                  {/* App Store Links */}
-                  {(project.playStoreUrl || project.appStoreUrl) && (
-                    <div className="flex space-x-2 mt-3">
-                      {project.playStoreUrl && (
-                        <motion.button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.playStoreUrl, '_blank');
-                          }}
-                          className="app-store-button px-2 py-1 rounded text-xs font-medium transition-all"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Play Store
-                        </motion.button>
-                      )}
-                      {project.appStoreUrl && (
-                        <motion.button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.appStoreUrl, '_blank');
-                          }}
-                          className="ios-store-button px-2 py-1 rounded text-xs font-medium transition-all"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          App Store
-                        </motion.button>
-                      )}
-                    </div>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-300 mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 3).map((tech: string, techIndex: number) => (
+                    <span
+                      key={techIndex}
+                      className="liquid-glass px-2 sm:px-3 py-1 rounded-full text-xs text-blue-400"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-xs text-gray-400 px-2 py-1">
+                      +{project.technologies.length - 3} more
+                    </span>
                   )}
                 </div>
               </div>
