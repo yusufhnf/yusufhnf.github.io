@@ -739,9 +739,9 @@
     }
   ],
   "achievements": [
-    { "icon": "Code", "title": "50+ Projects", "description": "Completed successfully" },
-    { "icon": "Palette", "title": "5+ Years", "description": "Design experience" },
-    { "icon": "Zap", "title": "99%", "description": "Client satisfaction" }
+    { "icon": "Code", "title": "24 Projects", "description": "Successfully delivered" },
+    { "icon": "Palette", "title": "7+ Years", "description": "Development experience" },
+    { "icon": "Zap", "title": "WWDC21 Winner", "description": "Swift Student Challenge" }
   ],
   "values": [
     {
