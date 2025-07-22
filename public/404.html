@@ -5,15 +5,11 @@
     <title>Let's #MeetUcup</title>
     <script type="text/javascript">
       // GitHub Pages redirect hack for single page applications
-      // This script takes the current URL and redirects to the root
-      // with the full path encoded in a query parameter
-      var pathSegmentsToKeep = 1;
+      // For user pages (yusufhnf.github.io), redirect to hash routing
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 
-        '/#' + l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/') + 
-        (l.search ? '&' + l.search.slice(1) : '')
+        '/#' + l.pathname + (l.search ? '&' + l.search.slice(1) : '')
       );
     </script>
   </head>
