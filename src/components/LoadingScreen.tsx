@@ -11,7 +11,7 @@ const LoadingScreen: React.FC = () => {
     >
       <div className="text-center">
         <motion.div
-          className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"
+          className="w-16 h-16 mx-auto mb-4 border-4 border-blue-500 rounded-full border-t-transparent"
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
         />
@@ -21,10 +21,10 @@ const LoadingScreen: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          Loading Portfolio
+          Ready to Explore? Please Wait...
         </motion.h2>
         <motion.div
-          className="flex space-x-1 mt-4 justify-center"
+          className="flex justify-center mt-4 space-x-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
