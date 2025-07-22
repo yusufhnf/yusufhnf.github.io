@@ -465,15 +465,45 @@ vercel --prod
 
 ### 3. GitHub Pages Deployment
 
+**Prerequisites**: Make sure your repository is public or you have GitHub Pro for private repo Pages.
+
+#### Option A: Automatic Deployment (Recommended)
+
+The project is pre-configured with GitHub Actions for automatic deployment:
+
+1. **Push to main branch** - The deployment will trigger automatically
+2. **Enable GitHub Pages** in your repository settings:
+   - Go to Settings > Pages
+   - Source: "GitHub Actions"
+   - The site will be available at `https://username.github.io/repository-name/`
+
+#### Option B: Manual Deployment
+
 ```bash
-# Install gh-pages
-npm install --save-dev gh-pages
+# Build and deploy manually
+npm run build
+npm run deploy
+```
 
-# Add deploy script to package.json
-"deploy": "gh-pages -d dist"
+#### Configuration Files Included:
 
-# Deploy
-npm run build && npm run deploy
+- **GitHub Actions Workflow**: `.github/workflows/deploy.yml`
+- **Vite Configuration**: Pre-configured with correct base path
+- **Deploy Scripts**: Added to `package.json`
+
+**Important**: The `vite.config.ts` is configured with `base: '/'` for root domain deployment. This works for:
+- Custom domains (e.g., `yoursite.com`)
+- `username.github.io` repositories
+- Root deployments on any hosting platform
+
+If deploying to a GitHub Pages project repository (not `username.github.io`), you may need to update the base path:
+
+```typescript
+// vite.config.ts - for project repositories
+export default defineConfig({
+  base: '/your-repository-name/',
+  // ... other config
+})
 ```
 
 ### 4. Docker Deployment
