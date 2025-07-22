@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, ChevronDown, ChevronUp } from 'lucide-react';
+import type { PortfolioData } from '../hooks/useData';
 
 interface ExperienceProps {
-  data: any;
+  data: PortfolioData;
 }
 
 const Experience: React.FC<ExperienceProps> = ({ data }) => {
@@ -37,7 +38,7 @@ const Experience: React.FC<ExperienceProps> = ({ data }) => {
           {/* Timeline line */}
           <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 to-blue-600"></div>
 
-          {data.experience.map((exp: any, index: number) => {
+          {data.experience.map((exp, index: number) => {
             const isExpanded = expandedCards.includes(index);
             
             return (

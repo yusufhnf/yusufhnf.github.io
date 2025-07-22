@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, BookOpen, Music, Instagram } from 'lucide-react';
+import type { PortfolioData } from '../hooks/useData';
 
 interface ContactProps {
-  data: any;
+  data: PortfolioData;
 }
 
 const Contact: React.FC<ContactProps> = ({ data }) => {
@@ -147,7 +148,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                 <h4 className="text-base sm:text-lg font-semibold mb-4 text-white">Follow Me</h4>
                 {/* Social Media Grid */}
                 <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
-                  {data.social.map((social: any, index: number) => {
+                  {data.social.map((social, index: number) => {
                     const IconComponent = iconMap[social.icon as keyof typeof iconMap];
                     const buttonStyle = getSocialButtonStyle(social.platform);
                     

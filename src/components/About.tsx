@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Palette, Zap } from 'lucide-react';
+import type { PortfolioData } from '../hooks/useData';
 
 interface AboutProps {
-  data: any;
+  data: PortfolioData;
 }
 
 const About: React.FC<AboutProps> = ({ data }) => {
@@ -151,7 +152,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
 
               {/* Achievement cards - styled like experience cards */}
               <div className="space-y-4">
-                {data.achievements.map((achievement: any, index: number) => {
+                {data.achievements.map((achievement, index: number) => {
                   const IconComponent = iconMap[achievement.icon as keyof typeof iconMap];
                   return (
                     <div
@@ -185,7 +186,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
         >
           <h3 className="text-xl sm:text-2xl font-bold mb-6 gradient-text">My Values</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {data.values.map((value: any, index: number) => (
+            {data.values.map((value, index: number) => (
               <motion.div
                 key={index}
                 className="glass-effect rounded-xl p-4 sm:p-6 card-hover"

@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, MapPin } from 'lucide-react';
+import type { PortfolioData } from '../hooks/useData';
 
 interface EducationProps {
-  data: any;
+  data: PortfolioData;
 }
 
 const Education: React.FC<EducationProps> = ({ data }) => {
@@ -24,7 +25,7 @@ const Education: React.FC<EducationProps> = ({ data }) => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-          {data.education.map((edu: any, index: number) => (
+          {data.education.map((edu, index: number) => (
             <motion.div
               key={index}
               className="glass-effect rounded-xl p-4 sm:p-6 card-hover"

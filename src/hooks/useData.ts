@@ -45,7 +45,9 @@ interface Experience {
   location: string;
   period: string;
   description: string;
-  achievements: string[];
+  responsibilities?: string[];
+  achievements?: string[];
+  technologies?: string[];
 }
 
 interface Education {
@@ -79,7 +81,7 @@ interface Value {
   description: string;
 }
 
-interface PortfolioData {
+export interface PortfolioData {
   branding: BrandingConfig;
   sections: {
     home: SectionConfig;
@@ -97,17 +99,18 @@ interface PortfolioData {
   projects: Project[];
   achievements: Achievement[];
   values: Value[];
+  [key: string]: unknown;
 }
 
 // Template interpolation function
 const interpolateTemplate = (template: string, data: Record<string, unknown>): string => {
   return template.replace(/\{\{([^}]+)\}\}/g, (match, path) => {
     const keys = path.trim().split('.');
-    let value = data;
+    let value: unknown = data;
     
     for (const key of keys) {
-      if (value && typeof value === 'object' && key in value) {
-        value = value[key];
+      if (value && typeof value === 'object' && value !== null && key in value) {
+        value = (value as Record<string, unknown>)[key];
       } else {
         return match; // Return original if path not found
       }
@@ -118,17 +121,17 @@ const interpolateTemplate = (template: string, data: Record<string, unknown>): s
 };
 
 // Process sections with template interpolation
-const processSections = (sections: any, data: PortfolioData) => {
-  const processed: any = {};
+const processSections = (sections: Record<string, unknown>, data: PortfolioData): Record<string, unknown> => {
+  const processed: Record<string, unknown> = {};
   
   for (const [sectionKey, sectionValue] of Object.entries(sections)) {
     processed[sectionKey] = {};
     
-    for (const [key, value] of Object.entries(sectionValue as any)) {
+    for (const [key, value] of Object.entries(sectionValue as Record<string, unknown>)) {
       if (typeof value === 'string') {
-        processed[sectionKey][key] = interpolateTemplate(value, data);
+        (processed[sectionKey] as Record<string, unknown>)[key] = interpolateTemplate(value, data);
       } else {
-        processed[sectionKey][key] = value;
+        (processed[sectionKey] as Record<string, unknown>)[key] = value;
       }
     }
   }

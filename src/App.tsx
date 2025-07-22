@@ -14,9 +14,10 @@ import LoadingScreen from './components/LoadingScreen';
 import BackToTop from './components/BackToTop';
 import ProjectsPage from './components/ProjectsPage';
 import { useData } from './hooks/useData';
+import type { PortfolioData } from './hooks/useData';
 import './App.css';
 
-function HomePage({ data, activeSection }: { data: any; activeSection: string }) {
+function HomePage({ data, activeSection }: { data: PortfolioData; activeSection: string }) {
   return (
     <>
       <Navbar activeSection={activeSection} data={data} />
