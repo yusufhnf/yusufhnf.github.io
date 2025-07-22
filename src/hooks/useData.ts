@@ -100,7 +100,7 @@ interface PortfolioData {
 }
 
 // Template interpolation function
-const interpolateTemplate = (template: string, data: any): string => {
+const interpolateTemplate = (template: string, data: Record<string, unknown>): string => {
   return template.replace(/\{\{([^}]+)\}\}/g, (match, path) => {
     const keys = path.trim().split('.');
     let value = data;
@@ -144,7 +144,7 @@ export const useData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/src/assets/data.json');
+        const response = await fetch('/data.json');
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
