@@ -45,7 +45,7 @@ Visit the live portfolio: [https://yusufhnf.dev](https://yusufhnf.dev)
 - **Framer Motion 11.0.0** - Production-ready motion library
 
 ## UI & Animation Libraries
-- **Lucide React 0.344.0** - Beautiful SVG icons
+- **Lucide React 0.468.0** - Beautiful SVG icons
 - **React Router DOM 6.28.0** - Client-side routing
 
 ## Development Tools
