@@ -106,8 +106,8 @@
         "Successfully contributed to aad_oauth package with adding Azure Active Directory running in Windows Platform",
         "Successfully implemented Android keyboard behavior and custom keyboard layout with multiple language in Windows Platform",
         "Successfully implemented multiple screen Flutter app for customer in Point-of-Sale app",
-        "Successfully created engelhorn_package_api package for Flutter to network consumer handler multiplatform apps",
-        "Successfully led Engelhorn Stationary Development team from zero"
+        "Successfully created package for Flutter to network consumer handler multiplatform apps",
+        "Successfully led POS Stationary Development team from zero"
       ],
       "technologies": ["Flutter for Windows", "Flutter for Web", "Flutter for Android", "Kotlin", "C++", "Azure Active Directory", "Jira", "Teams", "Confluence", "Miro"]
     },
@@ -206,13 +206,12 @@
   "projects": [
     {
       "id": 1,
-      "title": "Engelhorn Stationary - Wolkk",
-      "description": "A Point-of-Sale (POS) application developed for internal use at Engelhorn retail. Built on the Windows platform with Flutter.",
-      "detailedDescription": "A Point-of-Sale (POS) application developed for internal use at Engelhorn retail. Built on the Windows platform, it includes features such as transactions, purchase journals, stock management, customer display on a secondary screen, and support for multiple payment methods. The app is developed using Flutter for Windows with BLoC Cubit as state management. We applied Clean Architecture, Unit Testing, Widget Testing, CI/CD, Build Runner, and Code Coverage. It also integrates real-time communication via WebSocket.",
+      "title": "POS Stationary - Wolkk",
+      "description": "A Point-of-Sale (POS) application developed for internal use at client retail. Built on the Windows platform with Flutter.",
+      "detailedDescription": "A Point-of-Sale (POS) application developed for internal use at client retail. Built on the Windows platform, it includes features such as transactions, purchase journals, stock management, customer display on a secondary screen, and support for multiple payment methods. The app is developed using Flutter for Windows with BLoC Cubit as state management. We applied Clean Architecture, Unit Testing, Widget Testing, CI/CD, Build Runner, and Code Coverage. It also integrates real-time communication via WebSocket.",
       "image": "/src/assets/images/stationary.png",
       "category": "frontend",
       "technologies": ["Flutter for Windows", "BLoC Cubit", "Clean Architecture", "WebSocket", "CI/CD", "Unit Testing", "Widget Testing"],
-      "liveUrl": "https://engelhorn.de",
       "duration": "8 months",
       "completedDate": "March 2025",
       "features": [
@@ -264,13 +263,12 @@
     },
     {
       "id": 3,
-      "title": "Anker Store App - Wolkk",
+      "title": "POS Store App - Wolkk",
       "description": "A cross-business Point-of-Sale (POS) application built on the Windows platform with comprehensive business features.",
       "detailedDescription": "A cross-business Point-of-Sale (POS) application built on the Windows platform. It features transaction processing, purchase journals, stock management, customer display with a secondary screen, and multiple payment methods. Developed using Flutter for Windows with BLoC Cubit, the app follows Clean Architecture and includes Unit Testing, Widget Testing, Build Runner, CI/CD, and Code Coverage. WebSocket is implemented for real-time communication.",
       "image": "/src/assets/images/ankerstoreapp.png",
       "category": "frontend",
       "technologies": ["Flutter for Windows", "BLoC Cubit", "Clean Architecture", "WebSocket", "Unit Testing", "Widget Testing", "CI/CD"],
-      "liveUrl": "https://anker.net",
       "duration": "8 months",
       "completedDate": "February 2023",
       "features": [
@@ -285,9 +283,9 @@
     },
     {
       "id": 4,
-      "title": "Engelhorn API Package - Wolkk",
-      "description": "A shared library designed to handle API consumption in the Engelhorn POS project for standardized networking.",
-      "detailedDescription": "A shared library designed to handle API consumption in the Engelhorn POS project. It was built to standardize the networking flow between mobile and desktop projects. With this package, developers can simply invoke predefined actions directly, improving consistency and maintainability across platforms.",
+      "title": "POS API Package for Flutter - Wolkk",
+      "description": "A shared library designed to handle API consumption in the client POS project for standardized networking.",
+      "detailedDescription": "A shared library designed to handle API consumption in the client POS project. It was built to standardize the networking flow between mobile and desktop projects. With this package, developers can simply invoke predefined actions directly, improving consistency and maintainability across platforms.",
       "image": "/src/assets/images/stationary.png",
       "category": "backend",
       "technologies": ["Flutter", "Dart", "REST API", "Package Development", "Cross-platform"],
