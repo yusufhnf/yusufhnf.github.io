@@ -147,9 +147,23 @@ export const useData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/data.json');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
+        // Try multiple paths to ensure data.json is found
+        const paths = ['/data.json', './data.json', `${import.meta.env.BASE_URL}data.json`];
+        let response;
+        let lastError;
+        
+        for (const path of paths) {
+          try {
+            response = await fetch(path);
+            if (response.ok) break;
+            lastError = `${path}: ${response.status} ${response.statusText}`;
+          } catch (err) {
+            lastError = `${path}: ${err instanceof Error ? err.message : 'Network error'}`;
+          }
+        }
+        
+        if (!response?.ok) {
+          throw new Error(`Failed to fetch data from all paths. Last error: ${lastError}`);
         }
         const rawData = await response.json();
         
