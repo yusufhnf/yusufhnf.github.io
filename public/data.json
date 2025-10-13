@@ -205,6 +205,39 @@
   ],
   "projects": [
     {
+      "id": 0,
+      "title": "Analitica.id - Freelance",
+      "description": "an online platform that provides preparation and practice for various entrance exams in Indonesia, such as the High School (SMA) and equivalent TKA exams, the UTBK SNBT, and the CPNS (civil servant) selection.",
+      "detailedDescription": "an online platform that provides preparation and practice for various entrance exams in Indonesia, such as the High School (SMA) and equivalent TKA exams, the UTBK SNBT, and the CPNS (civil servant) selection. It offers tryouts, practice questions, AI-powered explanations, and performance analysis to help users prepare for these tests. The platform can be accessed through its website and a mobile app available on platforms like Android and iOS. ",
+      "image": "/analiticaid.png",
+      "category": "frontend",
+      "technologies": [ "Unit Testing", "Widget Testing", "Riverpod", "Flutter Web", "Flutter Android", "Flutter iOS", "Firebase", "MixPanel", "ChatBot"],
+      "liveUrl": "https://web.analitica.id",
+      "duration": "2 months",
+      "completedDate": "September 2025",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=co.xomodo.analitica",
+      "appStoreUrl": "https://apps.apple.com/us/app/analitica-bantu-lolos-seleksi/id1496679731",
+      "features": [
+        "User registration and authentication",
+        "Exam preparation modules",
+        "Practice questions and quizzes",
+        "AI-powered explanations",
+        "Performance tracking and analytics",
+        "Multi-platform support (web and mobile)",
+        "Interactive user interface"
+      ],
+      "challenges": [
+        {
+          "challenge": "Multi-platform Development",
+          "solution": "Utilized Flutter's cross-platform capabilities to ensure consistent user experience across web and mobile platforms."
+        },
+        {
+          "challenge": "AI Integration",
+          "solution": "Implemented AI algorithms to provide accurate and helpful explanations for practice questions."
+        }
+      ]
+    },
+    {
       "id": 1,
       "title": "Engelhorn Stationary - Wolkk",
       "description": "A Point-of-Sale (POS) application developed for internal use at Engelhorn retail. Built on the Windows platform with Flutter.",
