@@ -31,7 +31,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [https://yusufhnf.dev](https://yusufhnf.dev)
+Visit the live portfolio: [https://yusufhnf.github.io](https://yusufhnf.github.io)
 
 ---
 
