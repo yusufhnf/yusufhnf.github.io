@@ -13,9 +13,30 @@ import Contact from './components/Contact';
 import LoadingScreen from './components/LoadingScreen';
 import BackToTop from './components/BackToTop';
 import ProjectsPage from './components/ProjectsPage';
+import { PrivacyPolicyDetailPage, PrivacyPolicyListPage } from './components/PrivacyPolicyPages';
 import { useData } from './hooks/useData';
 import type { PortfolioData } from './hooks/useData';
 import './App.css';
+
+function PortfolioStateScreen({ error }: { error?: string }) {
+  return (
+    <div className="min-h-screen bg-primary-black flex items-center justify-center">
+      <div className="text-center">
+        {error ? (
+          <div className="text-status-error">
+            <h2 className="text-2xl font-bold mb-2">Error Loading Data</h2>
+            <p>{error}</p>
+          </div>
+        ) : (
+          <div className="text-text-primary">
+            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4 animate-spin"></div>
+            <p>Loading portfolio data...</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 function HomePage({ data, activeSection }: { data: PortfolioData; activeSection: string }) {
   return (
@@ -88,25 +109,25 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (dataLoading || error) {
-    return (
-      <div className="min-h-screen bg-primary-black flex items-center justify-center">
-        <div className="text-center">
-          {error ? (
-            <div className="text-status-error">
-              <h2 className="text-2xl font-bold mb-2">Error Loading Data</h2>
-              <p>{error}</p>
-            </div>
-          ) : (
-            <div className="text-text-primary">
-              <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4 animate-spin"></div>
-              <p>Loading portfolio data...</p>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
+  const homePageElement = dataLoading ? (
+    <PortfolioStateScreen />
+  ) : error ? (
+    <PortfolioStateScreen error={error} />
+  ) : data ? (
+    <HomePage data={data} activeSection={activeSection} />
+  ) : (
+    <PortfolioStateScreen error="Portfolio data is unavailable." />
+  );
+
+  const projectsPageElement = dataLoading ? (
+    <PortfolioStateScreen />
+  ) : error ? (
+    <PortfolioStateScreen error={error} />
+  ) : data ? (
+    <ProjectsPage data={data} />
+  ) : (
+    <PortfolioStateScreen error="Portfolio data is unavailable." />
+  );
 
   return (
     <Router>
@@ -114,26 +135,26 @@ function App() {
         <AnimatePresence>
           {isLoading && <LoadingScreen />}
         </AnimatePresence>
-        
-        {!isLoading && data && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="w-full"
-          >
-            <Routes>
-              <Route 
-                path="/" 
-                element={<HomePage data={data} activeSection={activeSection} />} 
-              />
-              <Route 
-                path="/projects" 
-                element={<ProjectsPage data={data} />} 
-              />
-            </Routes>
-          </motion.div>
-        )}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-full"
+        >
+          <Routes>
+            <Route path="/" element={homePageElement} />
+            <Route path="/projects" element={projectsPageElement} />
+            <Route
+              path="/privacy-policy"
+              element={<PrivacyPolicyListPage />}
+            />
+            <Route
+              path="/privacy-policy/:slug"
+              element={<PrivacyPolicyDetailPage />}
+            />
+          </Routes>
+        </motion.div>
       </div>
     </Router>
   );
