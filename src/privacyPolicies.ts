@@ -11,6 +11,17 @@ export interface PrivacyPolicyEntry {
   content: string;
 }
 
+const extractTitleFromMarkdown = (content: string) => {
+  const headingMatch = content.match(/^#\s+(.+)$/m);
+  if (!headingMatch) {
+    return undefined;
+  }
+
+  return headingMatch[1]
+    .replace(/^Privacy Policy for\s+/i, '')
+    .trim();
+};
+
 const titleFromSlug = (slug: string) =>
   slug
     .split(/[-_]/g)
@@ -25,7 +36,7 @@ export const privacyPolicies: PrivacyPolicyEntry[] = Object.entries(policyModule
 
     return {
       slug,
-      title: titleFromSlug(slug),
+      title: extractTitleFromMarkdown(content) ?? titleFromSlug(slug),
       path,
       content,
     };
