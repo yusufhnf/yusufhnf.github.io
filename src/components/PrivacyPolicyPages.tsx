@@ -49,6 +49,7 @@ const renderMarkdown = (content: string) => {
   const lines = content.split(/\r?\n/);
   const nodes: React.ReactNode[] = [];
   let paragraphLines: string[] = [];
+  let listItems: string[] = [];
 
   const flushParagraph = (key: string) => {
     if (paragraphLines.length === 0) {
@@ -66,23 +67,49 @@ const renderMarkdown = (content: string) => {
     paragraphLines = [];
   };
 
+  const flushList = (key: string) => {
+    if (listItems.length === 0) {
+      return;
+    }
+
+    nodes.push(
+      <ul key={key} className="list-disc space-y-2 pl-6 text-base leading-8 text-text-secondary">
+        {listItems.map((item, index) => (
+          <li key={`${key}-${index}`}>{parseInlineMarkdown(item)}</li>
+        ))}
+      </ul>,
+    );
+
+    listItems = [];
+  };
+
   lines.forEach((rawLine, index) => {
     const line = rawLine.trim();
 
     if (!line) {
       flushParagraph(`paragraph-${index}`);
+      flushList(`list-${index}`);
       return;
     }
 
     if (/^\*\s\*\s\*$/.test(line)) {
       flushParagraph(`paragraph-${index}`);
+      flushList(`list-${index}`);
       nodes.push(<hr key={`divider-${index}`} className="border-primary-border/70 my-4" />);
+      return;
+    }
+
+    const listMatch = line.match(/^[-*]\s+(.+)$/);
+    if (listMatch) {
+      flushParagraph(`paragraph-${index}`);
+      listItems.push(listMatch[1]);
       return;
     }
 
     const headingMatch = line.match(/^(#{1,6})\s+(.+)$/);
     if (headingMatch) {
       flushParagraph(`paragraph-${index}`);
+      flushList(`list-${index}`);
       const level = headingMatch[1].length;
       const text = headingMatch[2];
       const headingClassName =
@@ -106,6 +133,7 @@ const renderMarkdown = (content: string) => {
     paragraphLines.push(line);
   });
 
+  flushList(`list-${lines.length}`);
   flushParagraph(`paragraph-${lines.length}`);
 
   return nodes;
