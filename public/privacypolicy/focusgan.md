@@ -1,7 +1,7 @@
 # Privacy Policy for FocusGan!
 
 **Effective date:** August 17, 2026  
-**Last updated:** August 17, 2026
+**Last updated:** August 22, 2026
 
 FocusGan! ("FocusGan!," "we," "our," or "the app") is a Pomodoro timer designed to help you focus, track completed sessions, and optionally block distracting apps. This Privacy Policy explains what information the app accesses, why it is needed, and how it is handled.
 
@@ -36,20 +36,47 @@ On Android, FocusGan! accesses the list of launchable apps installed on your dev
 
 ## Accessibility Service
 
-On Android, app blocking uses the system Accessibility Service. This permission is optional but required if you enable distraction blocking.
+On Android, the optional distraction-blocking feature uses the system Accessibility Service. Accessibility access is not required to use the timer, history, settings, or sharing features, but it is required for FocusGan! to detect and cover selected distracting apps during an active focus interval.
 
-While a focus interval is running, the service checks which app is in the foreground. If the foreground app is one you selected, FocusGan! displays a blocking screen.
+### How the service works
+
+While a focus interval is running, the service receives a window-change event containing the package identifier of the app currently in the foreground. FocusGan! compares that identifier on your device with the package identifiers you selected. If they match, FocusGan! displays a blocking screen. The service is configured not to retrieve window content.
+
+FocusGan! processes this information locally and does not retain a history of apps you open. It stores only the package identifiers you deliberately select for blocking.
+
+### Prominent disclosure and consent
+
+Before FocusGan! opens Android's Accessibility settings, the app displays a prominent, unambiguous disclosure explaining:
+
+- That FocusGan! uses Accessibility access
+- That the access detects when a selected distracting app is opened
+- That the app displays a blocking screen over that app only during an active focus interval
+- What FocusGan! does not read, perform, or share through this access
+- That you can change or revoke the permission in Android Settings
+
+The disclosure presents two separate choices: **Don't allow** and **Allow access**. Android's Accessibility settings are opened only after you affirmatively tap **Allow access**. Tapping **Don't allow**, leaving the app, or otherwise interrupting the disclosure is not treated as consent and does not open the permission settings. The disclosure does not close automatically and FocusGan! does not preselect or infer consent.
+
+After you choose **Allow access**, Android displays its own system-controlled Accessibility settings, where you must separately find FocusGan! and enable the service. FocusGan! cannot enable this system permission on your behalf.
+
+Declining Accessibility access has no effect on the core timer. Only distraction blocking remains unavailable.
+
+### Accessibility access limitations
 
 FocusGan! does not use Accessibility access to:
 
 - Read or collect text you type
 - Read messages, passwords, or other screen content
-- Perform clicks or gestures on your behalf
+- Perform clicks or gestures on your behalf, except that tapping the visible **Exit app** button on FocusGan!'s blocking screen invokes Android's Home action as directly requested by you
 - Record the screen
+- Build a history of apps you open
 - Upload Accessibility data
+- Sell or share Accessibility data with third parties
+- Use Accessibility data for advertising, analytics, or profiling
 - Circumvent Android privacy or security controls
 
-You can revoke Accessibility access at any time in your Android system settings. App blocking will stop working after access is revoked.
+### Revoking access
+
+You can disable FocusGan!'s Accessibility access at any time in **Android Settings > Accessibility > FocusGan!** (the exact path may vary by device). App blocking stops working after access is revoked, while the rest of the app remains available. You may enable it again later through the same disclosure and Android-controlled permission flow.
 
 ## Notifications
 
@@ -116,4 +143,3 @@ For privacy questions or requests, contact:
 
 **Email:** [meetucupnow@gmail.com](mailto:meetucupnow@gmail.com)  
 **Website:** [https://yusufhnf.github.io](https://yusufhnf.github.io)
-
